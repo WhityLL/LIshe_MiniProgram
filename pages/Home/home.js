@@ -2,6 +2,8 @@
 
 const app = getApp()
 
+import { netManager } from "../../utils/network.js"
+
 Page({
 
   /**
@@ -20,25 +22,17 @@ Page({
       windowHeight: app.globalData.systemInfo.windowHeight
     })
 
-    this.getData();
+    this.getHomeData();
   },
 
-  
-  getData: function (){
+
+  getHomeData: function(){
     var that = this;
-    var baseIndexUrl = "https://shopapi.lishe.cn/shopAPI.php/Index/wshopIndex";
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2NTciLCJjb21JZCI6IjE0NjQzMTc0NjAwMzciLCJhY2NvdW50IjoiMTg2NjQzNzc4NTEiLCJ1c2VyTmFtZSI6Ilx1OTQ5Zlx1NTE0Nlx1NjU4NyJ9.a6RdutnQwDKAciEf57R08CC9GIQJaPz2wlaMpUuy30o";
-    wx.request({
-      url: baseIndexUrl,
-      data: {
-        token: token,
-        client: 5
-      },
-      success: function (res) {
-        console.log(res); //这里打印出来的是json格式的数据
-        // banner
-        var jsonData = res.data;
-        if (jsonData.result == 100 & jsonData.errcode == 0){
+    netManager.getHomeList({
+      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2NTciLCJjb21JZCI6IjE0NjQzMTc0NjAwMzciLCJhY2NvdW50IjoiMTg2NjQzNzc4NTEiLCJ1c2VyTmFtZSI6Ilx1OTQ5Zlx1NTE0Nlx1NjU4NyJ9.a6RdutnQwDKAciEf57R08CC9GIQJaPz2wlaMpUuy30o",
+      success: jsonData => {
+
+        if (jsonData.result == 100 & jsonData.errcode == 0) {
           var bannerData = jsonData.data.shuDetailList;
           // menu
           var menuItems = jsonData.data.hotType;
@@ -62,7 +56,6 @@ Page({
         }
       }
     })
-
   },
 
   onTapAdlistClickEvent: function (e){

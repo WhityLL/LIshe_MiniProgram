@@ -5,7 +5,6 @@
     "pages/Cart/cart",
     "pages/Profile/profile",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/search/search"
   ],
   "window": {

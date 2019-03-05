@@ -1,0 +1,11 @@
+<!--components/homePageComponents/homePageListItem.wxml-->
+
+<view class='floor'>
+
+    <view class='floor-headergroup'>
+        <view class='floor-title'>新品上架</view>
+    </view>
+
+    <block></block>
+
+</view>
