@@ -4,67 +4,56 @@
 
   <!-- 上半部分 -->
   <view class='top-group' style='width:{{windowWidth}}px; height:{{windowWidth *0.47 + 160}}px'>
-      <!-- 轮播图 -->
-      <swiper class='swiper-view' autoplay='true' circular='true' indicator-dots='true' style='width:{{windowWidth}}px; height:{{windowWidth * 0.47}}px'>
-        <block wx:for="{{bannerData}}" wx:key="figure_id">
-          <swiper-item>
-            <image src='{{item.banner_img}}'></image>
-          </swiper-item>
-        </block>
-      </swiper>
+    <!-- 轮播图 -->
+    <swiper class='swiper-view'  current="{{swiperCurrent}}" bindchange="swiperChange" autoplay='true' circular='true' indicator-dots='true' style='width:{{windowWidth}}px; height:{{windowWidth * 0.47}}px'>
+      <block wx:for="{{bannerDataArr}}" wx:key="figure_id">
+        <swiper-item>
+          <image src='{{item.banner_img}}' bindtap="swipclick"></image>
+        </swiper-item>
+      </block>
+    </swiper>
 
-      <!-- functionMenu -->
-      <view class='menu-container-group'>
-        <view class='menu-bg-view'>
-          <block wx:for="{{menuItems}}" wx:key="id">
-            <!-- <navigator></navigator> -->
-            <view class='menu-item-group' style='width:{{(windowWidth-40)/5}}px;'>
-              <image class='menu-item-image' src='{{item.wcat_icon_logo}}'></image>
-              <view class='menu-item-title'>{{item.cat_short_name}}</view>
-            </view>
-          </block>
-        </view>
+    <!-- functionMenu -->
+    <view class='menu-container-group'>
+      <view class='menu-bg-view'>
+        <block wx:for="{{menuItems}}" wx:key="id">
+          <!-- <navigator></navigator> -->
+          <view class='menu-item-group' style='width:{{(windowWidth-40)/5}}px;'>
+            <image class='menu-item-image' src='{{item.wcat_icon_logo}}'></image>
+            <view class='menu-item-title'>{{item.cat_short_name}}</view>
+          </view>
+        </block>
       </view>
+    </view>
+  </view>
+
+  <!-- 专区 -->
+  <view class='middle-top-group'>
+    <view class='middle-threeitem' style='width:{{windowWidth-20}}px; height:{{(windowWidth - 20 - 3)/2}}px;'>
+      <view class='middle-threeitem-left'>
+        <image style='width:{{(windowWidth - 23)/2}}px; height:{{(windowWidth - 23)/2}}px;' bindtap='onTapAdlistClickEvent' data-id='{{adlist[0].id}}' src='{{adlist[0].area_pic}}'></image>
+      </view>
+      <view class='middle-threeitem-right'>
+        <image style='width:{{(windowWidth - 23)/2}}px; height:{{(((windowWidth - 23)/2)-3)/2}}px;' bindtap='onTapAdlistClickEvent' data-id='{{adlist[1].id}}' src='{{adlist[1].area_pic}}'></image>
+        <image style='width:{{(windowWidth - 24)/2}}px; height:{{(((windowWidth - 23)/2)-3)/2}}px;' bindtap='onTapAdlistClickEvent' data-id='{{adlist[2].id}}' src='{{adlist[2].area_pic}}'></image>
+      </view>
+    </view>
+
+    <view class='middle-oneitem' style='width:{{windowWidth - 20}}px; height:{{(windowWidth - 20)/4}}px;'>
+      <image src='{{adlist[3].area_pic}}' bindtap='onTapAdlistClickEvent' data-id='{{adlist[3].id}}'></image>
+    </view>
+
+    <view class='middle-twoitem' style='width:{{windowWidth - 20}}px; height:{{(windowWidth - 20)/4}}px;'>
+      <image style='width:{{(windowWidth - 23)/2}}px;' src='{{adlist[4].area_pic}}' bindtap='onTapAdlistClickEvent' data-id='{{adlist[4].id}}'></image>
+      <image style='width:{{(windowWidth - 23)/2}}px;' src='{{adlist[5].area_pic}}' bindtap='onTapAdlistClickEvent' data-id='{{adlist[5].id}}'></image>
+    </view>
   </view>
 
   <!-- 下半部分 -->
-  <view class='bottom-group'>
-    
-    <!-- 专区 -->
-    <view class='bottom-top-group'>
-      <view class='middle-threeitem' style='width:{{windowWidth-20}}px; height:{{(windowWidth - 20 - 3)/2}}px;'>
-        <view class='middle-threeitem-left'>
-          <image style='width:{{(windowWidth - 23)/2}}px; height:{{(windowWidth - 23)/2}}px;' bindtap='onTapAdlistClickEvent' data-id='{{adlist[0].id}}' src='{{adlist[0].area_pic}}'></image>
-        </view>
-        <view class='middle-threeitem-right'>
-          <image style='width:{{(windowWidth - 23)/2}}px; height:{{(((windowWidth - 23)/2)-3)/2}}px;' bindtap='onTapAdlistClickEvent' data-id='{{adlist[1].id}}' src='{{adlist[1].area_pic}}'></image>
-          <image style='width:{{(windowWidth - 24)/2}}px; height:{{(((windowWidth - 23)/2)-3)/2}}px;' bindtap='onTapAdlistClickEvent' data-id='{{adlist[2].id}}' src='{{adlist[2].area_pic}}'></image>
-        </view>
-      </view>
+  <floorItem item_title='新品上架' items='{{top4}}' bindproductItemClick="onProductItemClickAction"></floorItem>
 
-      <view class='middle-oneitem' style='width:{{windowWidth - 20}}px; height:{{(windowWidth - 20)/4}}px;'>
-        <image src='{{adlist[3].area_pic}}' bindtap='onTapAdlistClickEvent' data-id='{{adlist[3].id}}'></image>
-      </view>
-
-      <view class='middle-twoitem' style='width:{{windowWidth - 20}}px; height:{{(windowWidth - 20)/4}}px;'>
-         <image style='width:{{(windowWidth - 23)/2}}px;' src='{{adlist[4].area_pic}}' bindtap='onTapAdlistClickEvent' data-id='{{adlist[4].id}}'></image>
-         <image style='width:{{(windowWidth - 23)/2}}px;' src='{{adlist[5].area_pic}}' bindtap='onTapAdlistClickEvent' data-id='{{adlist[5].id}}'></image>
-      </view>
-    </view>
-
-    <!-- 新品上架 -->
-    <view class='bottom-bottom-group'>
-      <block wx:for='{{top4}}' wx:key='item_id'>
-        <view class='goods-item'>
-
-          <image class='good-image' src='{{item.image_default_id}}'></image>
-          <view class='good-title'>{{item.title}}</view>
-          <view class='good-price'>¥{{item.price}}</view>
-
-        </view>
-      </block>
-    </view>
-    
-  </view>
+  <block wx:for="{{arr}}" wx:key="{{item.item_config_id}}">
+    <floorItem item_title='{{item.cat_short_name}}' items='{{item.info}}' bindproductItemClick="onProductItemClickAction"></floorItem>
+  </block>
 
 </view>

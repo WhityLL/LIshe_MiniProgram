@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "首页"
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "floorItem" : "/components/homePageComponents/homePageListItem"
+  }
+  
 }

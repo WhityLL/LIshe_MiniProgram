@@ -3,9 +3,17 @@
 <view class='floor'>
 
     <view class='floor-headergroup'>
-        <view class='floor-title'>新品上架</view>
+        <view class='floor-title'>{{item_title}}</view>
     </view>
 
-    <block></block>
+    <view class='floor-itemgroup'>
+      <block wx:for="{{items}}" wx:key="{{item.item_id}}">
+        <view class='floor-item' data-itemid='{{item.item_id}}' bindtap='onItemClickEvent'>
+          <image src='{{item.image_default_id}}'></image>
+          <text class='item-subtitle'>{{item.title}}</text>
+          <text class='item-price'>{{item.point}}积分</text>
+        </view>
+      </block>  
+    </view>
 
 </view>

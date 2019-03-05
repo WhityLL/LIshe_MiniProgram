@@ -1,0 +1,2 @@
+<!--pages/ProductDetail/productDetail.wxml-->
+<text>商品ID={{itemId}}</text>

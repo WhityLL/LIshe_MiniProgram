@@ -18,15 +18,14 @@ page{
 
 .menu-container-group{
   box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 10px; 
+  padding: 0 30rpx;
   font-size: 11px;
   position: absolute;
   bottom: 0;
 }
 
 .menu-container-group .menu-bg-view{
-  border-radius: 15px;
+  border-radius: 16rpx;
   background: #fff;
 
   /* 弹性布局 */
@@ -55,27 +54,21 @@ page{
   height: 40rpx;
 }
 
-.bottom-group{
-  padding: 0 10px;
-}
-
-.bottom-top-group{
-  margin-top: 20rpx;
-  /* background: orange; */
+.middle-top-group{
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx; 
   width: 100%;
+  box-sizing: border-box;
 }
 
-.bottom-top-group .middle-threeitem{
-  /* background: lightblue; */
-}
-
-.bottom-top-group .middle-threeitem .middle-threeitem-left{
+.middle-top-group .middle-threeitem .middle-threeitem-left{
   width: 50%;
   height: 100%;
   float: left;
 }
 
-.bottom-top-group .middle-threeitem .middle-threeitem-right{
+.middle-top-group .middle-threeitem .middle-threeitem-right{
   float: right;
   width: 50%;
   height: 100%;
@@ -87,66 +80,22 @@ page{
   align-items:flex-end;
 }
 
-.bottom-top-group .middle-oneitem{
+.middle-top-group .middle-oneitem{
   margin-top: 3px;
 }
 
-.bottom-top-group .middle-oneitem image{
+.middle-oneitem image{
   width: 100%;
   height: 100%;
 }
 
-.bottom-top-group .middle-twoitem{
+.middle-top-group .middle-twoitem{
   margin-top: 3px;
   display: flex;
   justify-content: space-between;
 }
 
-.bottom-top-group .middle-twoitem image{
+.middle-twoitem image{
   width: 100%;
   height: 100%;
-}
-
-.bottom-bottom-group{
-  width: 100%;
-  margin-top: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  box-sizing: content-box;
- 
-}
-
-.bottom-bottom-group .goods-item{
-  width: 345rpx;
-  height: 500rpx;
-  background: white;
-  border: 1px solid lightgray;
-  margin-top: 10px;
-
-  position:relative;
-}
-
-.goods-item image{
-  width: 345rpx;
-  height: 345rpx;
-}
-
-.goods-item .good-title{
-  font-size: 30rpx;
-  font-family:PingFang-SC-Medium;
-
-  position: absolute;
-  left: 20rpx;
-}
-
-.goods-item .good-price{
-  font-size:26rpx;
-  font-family:PingFang-SC-Bold;
-  font-weight:bold;
-  color: red;
-  
-  position: absolute;
-  bottom: 20rpx;
-  left: 20rpx;
 }
