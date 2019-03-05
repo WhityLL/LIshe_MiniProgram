@@ -1,0 +1,146 @@
+<!--pages/Profile/profile.wxml-->
+
+<view class='top-borderline'></view>
+
+<view class='container-view'>
+  <view class='header-group'>
+    <view class='headerview-bgview'></view>
+    <view class='headerview-content'>
+      <view class='headerview-content-top'></view>
+      <view class='headerview-content-bottom'></view>
+    </view>
+  </view>
+
+  <!-- 我的订单开始 -->
+  <view class='order-group'>
+    <a class="weui-cell  weui-cell_access" href="javascript:;">
+      <div class="weui-cell__bd weui-cell-title">
+        <p>我的订单</p>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </a>
+
+    <ul>
+      <li>
+        <a href="/wshop/order/orderList.html?status=WAIT_BUYER_PAY">
+          <div>
+            <image src="/images/Profile/po_icon_pt.png" alt=""></image>
+            <!--if-->
+          </div>
+          <p>待付款</p>
+        </a>
+      </li>
+      <li>
+        <a href="/wshop/order/orderList.html?status=WAIT_SELLER_SEND_GOODS">
+          <div>
+            <image src="/images/Profile/po_icon_dy.png" alt=""></image>
+            <!--if-->
+          </div>
+          <p>待发货</p>
+        </a>
+      </li>
+      <li>
+        <a href="/wshop/order/orderList.html?status=WAIT_BUYER_CONFIRM_GOODS">
+          <div>
+            <image src="/images/Profile/po_icon_goods.png" alt=""></image>
+            <!--if-->
+          </div>
+          <p>待收货</p>
+        </a>
+      </li>
+      <li>
+        <a href="/wshop/order/orderList.html?status=NO_APPLY">
+          <div>
+            <image src="/images/Profile/po_icon_refund.png" alt=""></image>
+          </div>
+          <p>退款/售后</p>
+        </a>
+      </li>
+    </ul>
+  </view>
+  <!-- 我的订单结束 -->
+
+  <!-- 下边cell开始 -->
+  <view class="weui-cells">
+    <div class="weui-cell weui-cell-title">
+      <div class="weui-cell__bd">
+        <p>我的服务</p>
+      </div>
+    </div>
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_assets.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>我的资产</text>
+      </view>
+      <view class="weui-cell__ft"></view>
+    </a>
+
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_cs1.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>我的优惠券</text>
+      </view>
+      <div class="weui-badge" style="margin-right: 5px;">8</div>
+      <view class="weui-cell__ft"></view>
+    </a>
+
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_cs.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>我的福利券</text>
+      </view>
+      <div class="weui-badge" style="margin-right: 5px;">8</div>
+      <view class="weui-cell__ft"></view>
+    </a>
+
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_pd.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>修改密码</text>
+      </view>
+      <view class="weui-cell__ft"></view>
+    </a>
+
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_as.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>地址管理</text>
+      </view>
+      <view class="weui-cell__ft"></view>
+    </a>
+
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_guide.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>新手引导</text>
+      </view>
+      <view class="weui-cell__ft"></view>
+    </a>
+
+    <a class="weui-cell weui-cell_access" href="javascript::">
+      <view class="weui-cell__hd">
+        <image src='/images/Profile/po_icon_about.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <text>关于礼舍</text>
+      </view>
+      <view class="weui-cell__ft"></view>
+    </a>
+  </view>
+  <!-- 下边cell结束-->
+
+  <button class='btn_logout' type='warn'>退出登录</button>
+
+</view>

@@ -1,0 +1,81 @@
+<!--pages/search/search.wxml-->
+
+<view class='top-borderline'></view>
+
+<view class='container-view'>
+  <!-- 搜索框 -->
+  <view class='top-group'>
+    <view class='header-group-left'>
+      <input class='input-view' placeholder='搜索商品名称' value='{{keyword}}' bindinput='onBeginInput' bindconfirm='onClickSearch'></input>
+      <icon class='search-clear' wx:if="{{clearBtnShow}}" type="clear" size="14" bindtap='onClearSearch'/>
+    </view>
+    <view class='btn-search' bindtap='onClickSearch'>搜索</view>
+  </view>
+
+  <!-- 热门 搜索记录 -->
+  <view class='bottom-search-group' wx:if='{{showSearchGroup}}'>
+    <!-- 热门搜索 -->
+    <view class='search-group' wx:if="{{hotSearchArr.length}}">
+      <view class='search-group-titleview'>
+        <view class='search-group-titleview-leftgroup'>
+          <image class='search-icon' src='../../images/search/search_ic_hot.png'></image>
+          <view>热门搜索</view>
+        </view>
+      </view>
+
+      <view class='search-group-itembgview search-group-itembgview-hot'>
+        <block wx:for='{{hotSearchArr}}' wx:key='id'>
+          <view class='search-group-item search-group-item-hot' style='max-width:{{windowWidth - 20}}px;'  data-clickindex='{{index}}' data-type='hotsearch'  bindtap='onSearchItemClick'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 历史记录 -->
+    <view class='search-group' wx:if="{{historySearchArr.length}}">
+      <view class='search-group-titleview'>
+        <view class='search-group-titleview-leftgroup '>
+          <image class='search-icon' src='../../images/search/search_ic_history.png'></image>
+          <view>历史记录</view>
+        </view>
+
+        <view class='search-group-titleview-rightgroup' bindtap='onClickClearHis'>
+          <image class='search-icon' src='../../images/search/search_ic_delete.png'></image>
+          <view>清空</view>
+        </view>
+      </view>
+
+      <view class='search-group-itembgview search-group-itembgview-his'>
+        <block wx:for='{{historySearchArr}}' wx:key='id'>
+          <view class='search-group-item search-group-item-his' style='max-width:{{windowWidth - 20}}px;' data-clickindex='{{index}}' data-type='hissearch' bindtap='onSearchItemClick'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class='bottom-searchresult-group' wx:if='{{!showSearchGroup}}'>
+    <view class='bottom-searchresult-sort-group'>
+      <view class='sort-group-item'>综合排序</view>
+      <view class='sort-group-item'>销量优先</view>
+      <view class='sort-group-item'>价格升序</view>
+    </view>
+
+    <view class='searchResult-group' wx:if='{{searchResult.length}}'>
+      <block wx:for='{{searchResult}}'>
+        <view class='searchResult-item'>
+          
+          <image class='searchResult-item-left' src='{{item.goodsPic}}'></image>
+
+          <view class='searchResult-item-right'>
+            <text class='goods-text goods-title'>{{item.goodsTitle}}</text>
+            <text class='goods-text goods-goodsDesc'>{{item.goodsDesc}}</text>            
+            <text class='goods-text goods-goodsPrice'>¥{{item.goodsPrice}}</text>
+          </view>
+
+        </view>
+      </block>
+    </view>
+
+    <view class='searchResult-empty' wx:else>搜索结果为空</view>
+  </view>
+
+</view>
