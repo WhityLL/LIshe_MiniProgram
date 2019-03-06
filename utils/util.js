@@ -14,6 +14,12 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//去左右空格;
+function trim(s) {
+  return s.replace(/(^\s*)|(\s*$)/g, "");
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  trim: trim
 }

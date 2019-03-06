@@ -1,51 +1,19 @@
 <!--pages/Categary/categary.wxml-->
 
-<view class='container-view' >
+<view class='container-view'>
 
-  <view class='left-group' style='width:90px; height:{{windowHeight}}px;'>
+  <view class='left-group'>
+    <view class='main-cate-item' wx:for="{{list}}" wx:key='{{item.item_config_id}}' data-catId='{{item.item_config_id}}' bindtap='onClickMainCategary'>
+      <text class="{{currentCatId == item.item_config_id ? 'active' : ''}}">{{item.cat_short_name}}</text>
+    </view>
+  </view>
 
-    <scroll-view class='scroll-left' scroll-y='true'>
-        
-        <block wx:for="{{cateItems}}" wx:key='cate_id'>  
-          <!--  data-XX 其中（xx是自定义字段 用来传参数） -->
-          <view class="nav_left_items {{currentNav == (item.cate_id - 1) ? 'active' : ''}}" data-selectedindex='{{index}}' bindtap='onClickMainCategary'>{{item.cate_name}}</view>  
-        </block>
+  <view class='right-group'>
 
-    </scroll-view>
+    <subCateView item_title='热销商品' items='{{subCatHot}}' bindcateItemClick="onCateItemAction"></subCateView>
+
+    <subCateView item_title='全部' items='{{subCat}}' bindcateItemClick="onCateItemAction"></subCateView>
 
   </view>
 
-  <scroll-view class="scroll_right" style='height:{{windowHeight}}px;' scroll-y="true" scroll-with-animation="true">
-      
-      <!-- 搜索框 -->
-      <view class='search-group'>
-        <view class='search-group-bg' bindtap='onSearchClick'>
-           <input class='input-class' disabled='true' placeholder='搜索商品名称'></input>
-          <icon class='search-clear'  type="clear" size="14" />
-        </view>
-      </view>
-
-      <!--如果有数据，才遍历项-->
-      <view class='scroll-content' wx:if="{{cateItems[currentNav].ishaveChild}}">
-      
-        <block wx:for="{{cateItems[currentNav].children}}" wx:key='{{child_id}}'>
-          <view class="nav_right_items">
-          <!--界面跳转 -->
-            <!-- (1)传值:在navigator的属性url后拼接?id(参数名字)=要传递的值 (如果多个参数用&分开 &name=value&…….) -->
-            <!-- (2)取值：options 是包含url地址中参数的对象，可以直接 点 获取。 -->
-            <navigator url="/pages/index/index?childid={{item.child_id}}&categaryid={{cateItems[currentNav].cate_id}}">
-              <image src="{{item.image}}"></image>
-              <text>{{item.name}}</text>
-            </navigator>
-          </view>
-        </block>
-
-      </view>
-      <!--如果无数据，则显示数据-->
-      <view class="nodata_text" wx:else>该分类暂无数据</view>
-
-  </scroll-view>
-
 </view>
-
-

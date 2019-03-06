@@ -1,10 +1,14 @@
+
+const config = require("config.js")
+
 const urlManager = {
 
-  clientAddress: "wwww.lishe.cn",
+  // 首页
+  homeIndexUrl: config.configApiDomain.test + "/shopAPI.php/Index/wshopIndex",
+  //分类
+  categaryListUrl: config.configApiDomain.test + "/shopAPI.php/Items/classifyList"
 
-  homeIndexUrl: "https://shopapi.lishe.cn/shopAPI.php/Index/wshopIndex"
-
-} 
+}
 
 // 导出方法
 export { urlManager }

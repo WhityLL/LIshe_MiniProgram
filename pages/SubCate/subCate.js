@@ -1,4 +1,4 @@
-// pages/WebView/webView.js
+// pages/SubCate/subCate.js
 Page({
 
   /**
@@ -14,14 +14,9 @@ Page({
   onLoad: function (options) {
     console.log(options);
     var that = this;
-    var url = options.url;
-    var prefixStart = url.indexOf("http");
-    if (prefixStart != 0){
-      //表示url不是以http开头；
-      url = "https://www.lishe.cn" + url + "?devicePlatform=2";
-    }
+    var itemConfigId = options.itemConfigId;
     that.setData({
-      url: url
+      itemConfigId: itemConfigId
     })
   },
 
@@ -29,8 +24,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var url = this.data.url;
-    console.log(url);
+
   },
 
   /**

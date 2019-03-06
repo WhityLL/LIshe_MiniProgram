@@ -1,0 +1,18 @@
+<!--components/cotegarySubCateComponent/cotegarySubCate.wxml-->
+
+<view class='floor'>
+
+    <view class='floor-headergroup'>
+        <view class='floor-title'>{{item_title}}</view>
+    </view>
+
+    <view class='floor-itemgroup'>
+      <block wx:for="{{items}}" wx:key="{{item.cat_id}}">
+        <view class='floor-item' data-cfgId='{{item.cat_config_id}}' data-catId='{{item.cat_id}}' bindtap='onItemClickEvent'>
+          <image src='{{item.wtwo_level_logo}}'></image>
+          <text>{{item.cat_name}}</text>
+        </view>
+      </block>  
+    </view>
+
+</view>

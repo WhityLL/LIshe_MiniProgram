@@ -9,7 +9,8 @@
     "pages/ProductDetail/productDetail",
     "pages/WebView/webView",
     "pages/wxpay/wxpay",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/SubCate/subCate"
   ],
   "window": {
     "backgroundTextStyle": "light",

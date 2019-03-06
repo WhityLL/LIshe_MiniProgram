@@ -21,16 +21,18 @@ Page({
     this.setData({
       windowWidth : app.globalData.systemInfo.windowWidth,
       windowHeight: app.globalData.systemInfo.windowHeight
-    })
+    });
 
     this.getHomeData();
+    
+    // var aa = config.getDomain("test");
+
   },
 
   // 网络请求
   getHomeData: function(){
     var that = this;
     netManager.getHomeList({
-      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2NTciLCJjb21JZCI6IjE0NjQzMTc0NjAwMzciLCJhY2NvdW50IjoiMTg2NjQzNzc4NTEiLCJ1c2VyTmFtZSI6Ilx1OTQ5Zlx1NTE0Nlx1NjU4NyJ9.a6RdutnQwDKAciEf57R08CC9GIQJaPz2wlaMpUuy30o",
       success: jsonData => {
 
         if (jsonData.result == 100 & jsonData.errcode == 0) {
@@ -71,9 +73,17 @@ Page({
     var that = this;
     var index = that.data.swiperCurrent;
     var bannerModel = that.data.bannerDataArr[index];
-    var refer = bannerModel.refer
+    var refer = bannerModel.wrefer
     wx.navigateTo({
       url: '/pages/WebView/webView?url=' + refer,
+    })
+  },
+
+  onclickCateItemAction: e => {
+    var itemConfigId = e.currentTarget.dataset.configid;
+
+    wx.navigateTo({
+      url: '/pages/SubCate/subCate?itemConfigId=' + itemConfigId,
     })
   },
 

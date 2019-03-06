@@ -1,10 +1,10 @@
-// components/homePageComponents/homePageListItem.js
+// components/cotegarySubCateComponent/cotegarySubCate.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    item_title:{
+    item_title: {
       type: String,
       value: "新品上架"
     },
@@ -26,13 +26,17 @@ Component({
    */
   methods: {
     // 点击了商品 注册事件
-    onItemClickEvent:function(e){
+    onItemClickEvent: function (e) {
       // console.log(e);
-      var itemid = e.currentTarget.dataset.itemid;
-      var detail = { "itemId": itemid };
+      var cfgId = e.currentTarget.dataset.cfgid;
+      var catId = e.currentTarget.dataset.catid;
+      var detail = {
+        "cfgId": cfgId,
+        "catId": catId
+      };
       var options = {};
       // 发送事件名 ,并传递两个参数
-      this.triggerEvent("productItemClick", detail, options);
+      this.triggerEvent("cateItemClick", detail, options);
     }
   }
 })

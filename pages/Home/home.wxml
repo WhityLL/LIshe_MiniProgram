@@ -18,7 +18,7 @@
       <view class='menu-bg-view'>
         <block wx:for="{{menuItems}}" wx:key="id">
           <!-- <navigator></navigator> -->
-          <view class='menu-item-group' style='width:{{(windowWidth-40)/5}}px;'>
+          <view class='menu-item-group' style='width:{{(windowWidth-40)/5}}px;' bindtap='onclickCateItemAction' data-configid='{{item.item_config_id}}'>
             <image class='menu-item-image' src='{{item.wcat_icon_logo}}'></image>
             <view class='menu-item-title'>{{item.cat_short_name}}</view>
           </view>
