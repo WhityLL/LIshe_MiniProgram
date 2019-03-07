@@ -27,16 +27,13 @@ Component({
   methods: {
     // 点击了商品 注册事件
     onItemClickEvent: function (e) {
-      // console.log(e);
-      var cfgId = e.currentTarget.dataset.cfgid;
       var catId = e.currentTarget.dataset.catid;
-      var detail = {
-        "cfgId": cfgId,
-        "catId": catId
-      };
+      var detail = {"catId": catId};
       var options = {};
+
       // 发送事件名 ,并传递两个参数
       this.triggerEvent("cateItemClick", detail, options);
     }
   }
 })
+

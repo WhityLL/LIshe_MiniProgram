@@ -21,34 +21,7 @@ Page({
       "生鲜商品测试"
     ],
     historySearchArr: [],
-    showSearchGroup: false,
-    searchResult:[
-      {
-        goodsId: 1,
-        goodsTitle:"这是测试第一个商品，超过的部分换行显示，这个应该够两行了吧，不够的话我在复制一份",
-        goodsPrice: "1111",
-        goodsDesc: "aaaaaaaaaaaaaaaaaaaa,aaaaaaaa,aaaaaaaa,过的部分",
-        goodsPic: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117972563.jpg",
-      }, {
-        goodsId: 1,
-        goodsTitle: "AAA",
-        goodsPrice: "2222",
-        goodsDesc: "bbb",
-        goodsPic: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117972563.jpg"
-      }, {
-        goodsId: 2,
-        goodsTitle: "BBB",
-        goodsPrice: "3333",
-        goodsDesc: "ccc",
-        goodsPic: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117972563.jpg"
-      }, {
-        goodsId: 3,
-        goodsTitle: "CCC",
-        goodsPrice: "4444",
-        goodsDesc: "ddd",
-        goodsPic: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117972563.jpg"
-      },
-    ]
+    showSearchGroup: true
   },
 
   /**
@@ -56,17 +29,17 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    
+    // that.setData({
+    //   windowWidth: app.globalData.systemInfo.windowWidth,
+    //   windowHeight: app.globalData.systemInfo.windowHeight
+    // })
 
-    that.setData({
-      windowWidth: app.globalData.systemInfo.windowWidth,
-      windowHeight: app.globalData.systemInfo.windowHeight
-    })
-
-    var searhRecordArr = wx.getStorageSync('searchHis') || [];
+    var historySearchArr = wx.getStorageSync('searchHis') || [];
 
     that.setData({
       clearBtnShow: false,
-      historySearchArr: searhRecordArr
+      historySearchArr: historySearchArr
     });
   },
 
@@ -125,7 +98,9 @@ Page({
     that.storageKeyword(searchWord);
   },
     
-  // 存储搜索历史记录
+  /**
+   * 存储搜索历史记录
+   */
   storageKeyword: function (searchKeyWord){
     let that = this;
 
@@ -154,7 +129,9 @@ Page({
     that.togoSearchWithKeyWord(searchKeyWord);
   },
 
-  // 清空搜索记录
+  /**
+   * 清空搜索记录
+   */
   onClickClearHis: function(event){
     let that = this;
     wx.clearStorageSync('searhRecord')
@@ -163,7 +140,9 @@ Page({
     })
   },
 
-  // 去搜索
+  /**
+   * 去搜索结果页面
+   */
   togoSearchWithKeyWord: function (searchKeyWord){
     console.log('跳转商品搜索结果页面=' + searchKeyWord);
   }

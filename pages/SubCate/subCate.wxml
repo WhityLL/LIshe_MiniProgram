@@ -1,2 +1,40 @@
 <!--pages/SubCate/subCate.wxml-->
-<text>pages/SubCate/subCate.wxml</text>
+
+<view class='container-view'>
+  <!-- 搜索框 -->
+  <view class='top-group'>
+    <view class='header-group-left' bindtap='onSearchViewClickAction'>
+      <input class='input-view' placeholder='搜索商品名称' disabled='true' value='{{keywords}}'></input>
+      <icon class='search-clear' wx:if="{{clearBtnShow}}" type="clear" size="14" bindtap='onClearSearch' />
+    </view>
+    <view class='btn-search' bindtap='onClickSearch'>搜索</view>
+  </view>
+
+
+  <view class='bottom-group' wx:if='{{!showSearchGroup}}'>
+    <view class='sort-group'>
+      <view class='sort-group-item'>综合</view>
+      <view class='sort-group-item'>销量</view>
+      <view class='sort-group-item'>价格</view>
+      <view class='sort-group-item'>筛选</view>
+    </view>
+
+    <view class='searchResult-group' wx:if='{{list.length}}'>
+      <block wx:for='{{list}}' wx:key="{{item.item_id}}">
+        <view class='searchResult-item' bindtap='onProductClickAction' data-index='{{index}}'>
+          <image class='searchResult-item-left' src='{{item.image_default_id}}'></image>
+          <view class='searchResult-item-right'>
+            <text class='goods-text goods-title'>{{item.title}}</text>
+            <view class='goods-goodsTags'>
+              <text>自营</text>
+            </view>
+            <text class='goods-text goods-goodsPrice'>{{item.point}}积分</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class='searchResult-empty' wx:else>搜索结果为空</view>
+  </view>
+
+</view>

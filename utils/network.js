@@ -17,13 +17,58 @@ const netManager = {
    */
   getCategaryList: function(params){
     var url = urlManager.categaryListUrl();
-    var catId = params.catId;
-    if (catId) {
-      url = url + "?catId=" + catId;
+
+    var cfgId = params.cfgId;
+    if (cfgId) {
+      url = url + "?catId=" + cfgId;
     }
     params.url = url;
-
     this.requestJsonData(params);
+  },
+
+  /**
+   * 搜索结果、三级分类页面
+   */
+  getSearchList: function(params){
+    var url = urlManager.searchListUrl();
+
+    var keywords = params.keywords ? params.keywords : "";
+    var shopId = params.shopId ? params.shopId : -1;
+    var cfgId = params.cfgId ? params.cfgId : "";
+    var catId = params.catId ? params.catId : "";
+    var jCatIdTwo = params.jCatIdTwo ? params.jCatIdTwo : "";
+
+    var minPrice = params.minPrice ? params.minPrice : "";
+    var maxPrice = params.maxPrice ? params.maxPrice : "";
+
+    var sort = params.sort ? params.sort : 1;
+    var p = params.p ? params.p : 1;
+
+    url = url + "?keywords=" + keywords + "&shopId=" + shopId + "&cfgId=" + cfgId + "&catId=" + catId + "&jCatIdTwo=" + jCatIdTwo + "&minPrice=" + minPrice + "&maxPrice=" + maxPrice + "&sort=" + sort + "&p=" + p;
+
+    params.url = url;
+    this.requestJsonData(params);
+  },
+
+
+  /**
+   * 热搜词汇
+   * 是否在这里存储？？？？
+   */
+  gethotSearchWords: function(){
+    var url = urlManager.getHotSearchWordsUrl();
+    this.requestJsonData({
+      url: url,
+      success: e => {
+        var hotSearchs = e.data.hotSearch;
+        var hotSearchWords = [];
+        for (var i = 0; i < hotSearchs.length; i++){
+          var hotSearch = hotSearchs[i];
+          hotSearchWords.push(hotSearch.key_word);
+        }
+        console.log(hotSearchWords);
+      }
+    });
   },
 
   /**
@@ -38,7 +83,7 @@ const netManager = {
       url: url,
       data: {
         token: token,
-        client: 3
+        client: 5
       },
       success: function (e) {
         var jsonData = e.data;
@@ -56,10 +101,11 @@ const netManager = {
           jsonData = jsonData.replace("jsonpReturn(","");
           jsonData = jsonData.substr(0, jsonData.length - 2);
           jsonData = JSON.parse(jsonData);
-          //console.log(jsonData);
         }
 
-        if (params && params.success) {
+        //console.log(jsonData);
+
+        if (params && params.success && jsonData) {
           params.success(jsonData);
         }
       },

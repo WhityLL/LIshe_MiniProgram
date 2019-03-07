@@ -10,6 +10,14 @@ const urlManager = {
   //分类
   categaryListUrl: function(){
     return configManager.getApiDomain() + "/shopAPI.php/Items/classifyList";
+  },
+
+  searchListUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Items/searchList";
+  },
+
+  getHotSearchWordsUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Items/hotSearch";
   }
 }
 

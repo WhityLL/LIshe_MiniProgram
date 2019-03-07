@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentCatId: "",
+    currentItemCfgd: "",
     searchContent: ""
   },
 
@@ -20,7 +20,11 @@ Page({
   onLoad: function (options) {
     var that = this;
 
+    // 获取分类数据
     that.getCateListData();
+
+    // 获取热搜词汇
+    netManager.gethotSearchWords()
   },
 
   /**
@@ -28,17 +32,32 @@ Page({
    */
   onClickMainCategary: function(event){
     var that = this;
-    var catId = event.currentTarget.dataset.catid;
+    var item_config_id = event.currentTarget.dataset.itemcfgid;
     that.setData({
-      currentCatId: catId
+      currentItemCfgd: item_config_id
     });
     that.getCateListData();
   },
 
   /**
+   * 
+   */
+  onCateItemAction: function(e) {
+    var that = this;
+    var catId = e.detail.catId;
+    var item_config_id = that.data.currentItemCfgd;
+    
+    // console.log("cfgId=" + item_config_id);
+
+    wx.navigateTo({
+      url: '/pages/SubCate/subCate?cfgId=' + item_config_id + "&catId=" + catId,
+    })
+  },
+
+  /**
    * 点击了搜索框
    */
-  onSearchClick: function (event){
+  onSearchClick: function (event) {
     let that = this;
     let value = event.detail.value;
 
@@ -48,27 +67,18 @@ Page({
 
   },
 
-  onCateItemAction: e => {
-    // console.log(e);
-    var cfgId = e.detail.cfgId;
-    var catId = e.detail.catId;
-    wx.navigateTo({
-      url: '/pages/SubCate/subCate?cfgId=' + cfgId + "&catId=" + catId,
-    })
-  },
-
   // 网络请求
   getCateListData: function () {
     var that = this;
-    var catId = that.data.currentCatId;
+    var itemCfgd = that.data.currentItemCfgd;
     netManager.getCategaryList({
-      catId: catId,
+      cfgId: itemCfgd,
       success: jsonData => {
         if (jsonData.result == 100 & jsonData.errcode == 0) {
           console.log(jsonData);
 
           that.setData({
-            catId: jsonData.data.cfgid,
+            cfgId: jsonData.data.cfgid,
             domainCom: jsonData.data.domainCom,
             list: jsonData.data.list,
             subCat: jsonData.data.subCat,
@@ -76,7 +86,7 @@ Page({
           });
 
           that.setData({
-            currentCatId: jsonData.data.cfgid,
+            currentItemCfgd: jsonData.data.cfgid, 
           })
         }
       },

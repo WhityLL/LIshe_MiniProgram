@@ -1,4 +1,7 @@
 // pages/SubCate/subCate.js
+
+import { netManager } from "../../utils/network.js"
+
 Page({
 
   /**
@@ -12,63 +15,86 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    // console.log(options);
     var that = this;
-    var cfgId = options.cfgId;
-    var catId = options.catId
+    var cfgId = options.cfgId ? options.cfgId : "";
+    var catId = options.catId ? options.catId : "";
     
     that.setData({
       cfgId: cfgId,
       catId: catId
+    });
+
+    that.getSearchListData();
+  },
+
+  getSearchListData: function(e){
+    var that = this;
+    var cfgId = that.data.cfgId;
+    var catId = that.data.catId;
+
+    netManager.getSearchList({
+      cfgId: cfgId,
+      catId: catId,
+      success: jsonData => {
+        if (jsonData.result == 100 & jsonData.errcode == 0) {
+          //console.log(jsonData);
+
+          that.setData({
+            cartCount: jsonData.data.cartCount,
+            catId: jsonData.data.catId,
+            cfgId: jsonData.data.cfgId,
+            catNameArr: jsonData.data.catNameArr,
+            catNameArrInfo: jsonData.data.catNameArrInfo,
+            
+            companyConfigInfo: jsonData.data.companyConfigInfo,
+            jCatIdTwo: jsonData.data.jCatIdTwo,
+            
+            list: jsonData.data.list,
+            listCount: jsonData.data.listCount,
+            
+            keywords: jsonData.data.keywords,
+            shopId: jsonData.data.shopId,
+            sort: jsonData.data.sort,
+            totalPage: jsonData.data.totalPage,
+
+            newUserAddressList: jsonData.data.newUserAddressList,
+          });
+        }
+      },
+      fail: err => {
+
+      }
+    });
+
+  },
+
+
+
+  /**
+   * 点击商品
+   */
+  onProductClickAction: function(e) {
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var productModel = that.data.list[index];
+    
+    var itemId = productModel.item_id;
+    wx.navigateTo({
+      url: '/pages/ProductDetail/productDetail?itemId=' + itemId,
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 点击了搜索
    */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onSearchViewClickAction: function(e){
+    var keywords = this.data.keywords;
+    wx.navigateTo({
+      url: '/pages/search/search?keywords=' + keywords,
+    })
   }
+
 })
+

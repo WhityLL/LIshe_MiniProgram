@@ -12,9 +12,9 @@ const configManager = {
    */
   getApiDomain : function() {
     var envirenment = this.getEnvirenment();
-    if (envirenment == "test") {
+    if (envirenment === "test") {
       return "https://test.shopapi.lishe.cn";
-    } else if (envirenment == "uat") {
+    } else if (envirenment === "uat") {
       return "https://uat.shopapi.lishe.cn";
     } else {
       return "https://shopapi.lishe.cn";
@@ -26,9 +26,9 @@ const configManager = {
    */
   getWebDomain : function() {
     var envirenment = this.getEnvirenment();
-    if (envirenment == "test") {
+    if (envirenment === "test") {
       return "https://www.lishe.cn:8080";
-    } else if (envirenment == "uat") {
+    } else if (envirenment === "uat") {
       return "https://www.lishe.cn:8090";
     } else {
       return "https://www.lishe.cn";

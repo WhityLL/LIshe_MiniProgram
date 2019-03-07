@@ -12,6 +12,4 @@ App({
     userInfo: null
   }
 
-  
-  
 })

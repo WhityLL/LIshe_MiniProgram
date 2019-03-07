@@ -3,12 +3,20 @@
 <view class='container-view'>
 
   <view class='left-group'>
-    <view class='main-cate-item' wx:for="{{list}}" wx:key='{{item.item_config_id}}' data-catId='{{item.item_config_id}}' bindtap='onClickMainCategary'>
-      <text class="{{currentCatId == item.item_config_id ? 'active' : ''}}">{{item.cat_short_name}}</text>
+    <view class='main-cate-item' wx:for="{{list}}" wx:key='{{item.item_config_id}}' data-itemcfgid='{{item.item_config_id}}' bindtap='onClickMainCategary'>
+      <text class="{{currentItemCfgd == item.item_config_id ? 'active' : ''}}">{{item.cat_short_name}}</text>
     </view>
   </view>
-
+ 
   <view class='right-group'>
+    
+    <!-- 搜索框 -->
+    <view class='search-group'>
+      <view class='search-group-bg' bindtap='onSearchClick'>
+        <input class='input-class' disabled='true' placeholder='搜索商品名称' ></input>
+        <icon class='search-clear' type="clear" size="14" />
+      </view>
+    </view>
 
     <subCateView item_title='热销商品' items='{{subCatHot}}' bindcateItemClick="onCateItemAction"></subCateView>
 

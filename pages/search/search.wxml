@@ -1,7 +1,5 @@
 <!--pages/search/search.wxml-->
 
-<view class='top-borderline'></view>
-
 <view class='container-view'>
   <!-- 搜索框 -->
   <view class='top-group'>
@@ -50,32 +48,6 @@
         </block>
       </view>
     </view>
-  </view>
-
-  <view class='bottom-searchresult-group' wx:if='{{!showSearchGroup}}'>
-    <view class='bottom-searchresult-sort-group'>
-      <view class='sort-group-item'>综合排序</view>
-      <view class='sort-group-item'>销量优先</view>
-      <view class='sort-group-item'>价格升序</view>
-    </view>
-
-    <view class='searchResult-group' wx:if='{{searchResult.length}}'>
-      <block wx:for='{{searchResult}}'>
-        <view class='searchResult-item'>
-          
-          <image class='searchResult-item-left' src='{{item.goodsPic}}'></image>
-
-          <view class='searchResult-item-right'>
-            <text class='goods-text goods-title'>{{item.goodsTitle}}</text>
-            <text class='goods-text goods-goodsDesc'>{{item.goodsDesc}}</text>            
-            <text class='goods-text goods-goodsPrice'>¥{{item.goodsPrice}}</text>
-          </view>
-
-        </view>
-      </block>
-    </view>
-
-    <view class='searchResult-empty' wx:else>搜索结果为空</view>
   </view>
 
 </view>
