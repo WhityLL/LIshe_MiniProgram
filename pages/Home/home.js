@@ -24,9 +24,20 @@ Page({
     });
 
     this.getHomeData();
+
+    // 获取热搜词汇
+    netManager.gethotSearchWords();
+
+    // 获取购物车数量
+    netManager.getCartNum({
+      success: e =>{
+        console.log(e);
+      }
+    });
+
   },
 
-  // 网络请求
+  // 网络请求首页数据
   getHomeData: function(){
     var that = this;
     netManager.getHomeList({

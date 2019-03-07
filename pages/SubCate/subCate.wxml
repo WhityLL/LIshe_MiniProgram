@@ -10,9 +10,8 @@
     <view class='btn-search' bindtap='onClickSearch'>搜索</view>
   </view>
 
-
-  <view class='bottom-group' wx:if='{{!showSearchGroup}}'>
-    <view class='sort-group'>
+  <view class="bottom-group" wx:if='{{!showSearchGroup}}'>
+    <view class="sort-group {{menuFixed ? 'fixed': ''}} stickyClass" id="affix">
       <view class='sort-group-item'>综合</view>
       <view class='sort-group-item'>销量</view>
       <view class='sort-group-item'>价格</view>
@@ -32,6 +31,12 @@
           </view>
         </view>
       </block>
+
+      <view class='btn_gotoTop' bindtap='onBackToTopAction' wx:if="{{ showGoTop }}">Top</view>
+      <view class='btn_cart' bindtap='onGotoCartAction'>
+        <text>{{cartNum}}</text>
+      </view>
+
     </view>
 
     <view class='searchResult-empty' wx:else>搜索结果为空</view>

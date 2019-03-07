@@ -19,9 +19,10 @@ Page({
     var that = this;
     var url = options.url;
     var prefixStart = url.indexOf("http");
+
     if (prefixStart != 0){
       //表示url不是以http开头；
-      url = configManager.getWebDomain() + url + "?devicePlatform=2";
+      url = configManager.getWebDomain() + url + "?devPlatform=5";
     }
     that.setData({
       url: url

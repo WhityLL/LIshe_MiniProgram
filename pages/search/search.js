@@ -8,18 +8,7 @@ Page({
    */
   data: {
     keyword: "",
-    hotSearchArr:[
-      "asdasddasdakldjadjajdkajdakldjkajdkajdlakdjlakdjalk",
-      "时令鲜果",
-      "食用油",
-      "坚果炒",
-      "家纺",
-      "时令鲜果",
-      "食用油",
-      "坚果炒货",
-      "家纺",
-      "生鲜商品测试"
-    ],
+    hotSearchArr:[],
     historySearchArr: [],
     showSearchGroup: true
   },
@@ -30,16 +19,14 @@ Page({
   onLoad: function (options) {
     let that = this;
     
-    // that.setData({
-    //   windowWidth: app.globalData.systemInfo.windowWidth,
-    //   windowHeight: app.globalData.systemInfo.windowHeight
-    // })
+    var hotSearchArr = wx.getStorageSync('hotSearchWords') || [];
 
     var historySearchArr = wx.getStorageSync('searchHis') || [];
 
     that.setData({
-      clearBtnShow: false,
-      historySearchArr: historySearchArr
+      hotSearchArr: hotSearchArr,
+      historySearchArr: historySearchArr,
+      clearBtnShow: false
     });
   },
 
@@ -69,6 +56,9 @@ Page({
     })
   },
 
+  /**
+   * 点击了搜索按钮
+   */
   onClickSearch: function (event) {
     let that = this;
     if (that.data.keyword.length == 0){
@@ -81,10 +71,10 @@ Page({
     }
   },
 
-  // 点击搜索
+  // 点击tags搜索
   onSearchItemClick: function (event){
     let that = this;
-    console.log(event)
+    // console.log(event);
     var searchType = event.currentTarget.dataset.type;
     var clickIndex = event.currentTarget.dataset.clickindex;
     var searchWord = '';
@@ -94,7 +84,7 @@ Page({
     }else{//历史记录拿出来的
       searchWord = that.data.historySearchArr[clickIndex];
     }
-
+    // 存储索索过的词
     that.storageKeyword(searchWord);
   },
     
@@ -104,19 +94,22 @@ Page({
   storageKeyword: function (searchKeyWord){
     let that = this;
 
+    //获取搜索记录数组
     var searhRecordArr = wx.getStorageSync('searchHis') || [];
-    //删除元素
+
+    //删除重复元素
     for (var i = 0; i < searhRecordArr.length; i++) {
       var temp = searhRecordArr[i];
       if (temp == searchKeyWord) {
         searhRecordArr.splice(i, 1);
       }
     };
+
     //添加元素
     searhRecordArr.splice(0, 0, searchKeyWord);
 
+    //大于10个就删除最后一个
     if (searhRecordArr.length >= 10){
-      //大于10个就删除最后一个
       searhRecordArr.splice(10,1);
     }
     // 本地化存储
@@ -145,5 +138,8 @@ Page({
    */
   togoSearchWithKeyWord: function (searchKeyWord){
     console.log('跳转商品搜索结果页面=' + searchKeyWord);
+    wx.navigateTo({
+      url: '/pages/SubCate/subCate?keywords=' + searchKeyWord,
+    })
   }
 })

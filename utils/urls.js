@@ -18,7 +18,12 @@ const urlManager = {
 
   getHotSearchWordsUrl: function(){
     return configManager.getApiDomain() + "/shopAPI.php/Items/hotSearch";
+  },
+
+  getCartNumUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Order/getCartNum";
   }
+
 }
 
 // 导出方法

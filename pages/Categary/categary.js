@@ -22,9 +22,7 @@ Page({
 
     // 获取分类数据
     that.getCateListData();
-
-    // 获取热搜词汇
-    netManager.gethotSearchWords()
+    
   },
 
   /**

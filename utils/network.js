@@ -66,7 +66,26 @@ const netManager = {
           var hotSearch = hotSearchs[i];
           hotSearchWords.push(hotSearch.key_word);
         }
-        console.log(hotSearchWords);
+        // 本地化存储
+        wx.setStorageSync('hotSearchWords', hotSearchWords);
+      }
+    });
+  },
+
+  /**
+   * 获取购物车数量
+   */
+  getCartNum: function(params){  
+    var cartNum;  
+    var url = urlManager.getCartNumUrl();
+    this.requestJsonData({
+      url: url,
+      success: e => {
+        cartNum = e.data; 
+        // 回传数量
+        if (params && params.success) {
+          params.success(cartNum);
+        }
       }
     });
   },

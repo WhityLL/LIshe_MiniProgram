@@ -1,10 +1,10 @@
 /* pages/SubCate/subCate.wxss */
 
-.container-view{
+.container-view {
   width: 100%;
 }
 
-.top-group{
+.top-group {
   background: #fff;
   height: 60rpx;
   width: 100%;
@@ -12,12 +12,11 @@
   margin-top: 20rpx;
   margin-bottom: 20rpx;
   box-sizing: border-box;
-
   display: flex;
   align-items: center;
 }
 
-.top-group .header-group-left{
+.top-group .header-group-left {
   height: 60rpx;
   background: #f5f5f5;
   margin-right: 30rpx;
@@ -28,40 +27,42 @@
   border-radius: 30rpx;
 }
 
-.header-group-left input{
+.header-group-left input {
   flex: 1;
   height: 60rpx;
-
   font-size: 26rpx;
   margin-left: 30rpx;
   margin-right: 15rpx;
   box-sizing: border-box;
 }
 
-.header-group-left .search-clear{
+.header-group-left .search-clear {
   flex-basis: 30rpx;
   margin-right: 14rpx;
 }
 
- .top-group .btn-search{
+.top-group .btn-search {
   height: 60rpx;
   flex-basis: 120rpx;
-  background: #FF4C4E;
+  background: #ff4c4e;
   font-size: 26rpx;
-  color: #F3F3F3;
+  color: #f3f3f3;
   line-height: 60rpx;
   text-align: center;
   border-radius: 30rpx;
 }
 
-.bottom-group{
+/* 下面 */
+
+.bottom-group {
   width: 100%;
   background: #fff;
 }
 
-.bottom-group .sort-group{
+.bottom-group .sort-group {
+  width: 100%;
   height: 70rpx;
-  /* background: greenyellow; */
+  background: #fff;
   padding-left: 20rpx;
   padding-right: 20rpx;
   margin-bottom: 20rpx;
@@ -69,23 +70,34 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
-  box-shadow: 0 0 30rpx rgba(81,60,58,0.1);
+  box-shadow: 0 0 30rpx rgba(81, 60, 58, 0.1);
+  opacity: 1;
 }
 
-.sort-group .sort-group-item{
+/* .fixed{
+  position: fixed;
+  top: 0; 
+} */
+
+.stickyClass {
+  position: sticky;
+  top: 0;
+}
+
+.sort-group .sort-group-item {
   line-height: 70rpx;
   /* background: orange; */
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
   font-weight: bold;
-} 
+}
 
-.bottom-group .searchResult-group{
+.bottom-group .searchResult-group {
   width: 100%;
   background: #fff;
 }
 
-.searchResult-group .searchResult-item{
+.searchResult-group .searchResult-item {
   /* border: 1rpx solid rebeccapurple; */
   height: 220rpx;
   width: 100%;
@@ -94,14 +106,14 @@
   align-items: center;
 }
 
-.searchResult-item .searchResult-item-left{
+.searchResult-item .searchResult-item-left {
   flex-basis: 180rpx;
   flex-shrink: 0;
   height: 180rpx;
   margin-left: 30rpx;
 }
 
-.searchResult-item .searchResult-item-right{
+.searchResult-item .searchResult-item-right {
   flex: 1;
   height: 180rpx;
   padding: 10rpx 20rpx;
@@ -110,20 +122,20 @@
   /* background: olive; */
 }
 
-.goods-text{
+.goods-text {
   display: -webkit-box;
 }
 
-.goods-title{
-  overflow:hidden; 
-  text-overflow:ellipsis;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2; 
+.goods-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   font-size: 28rpx;
-  font-family:PingFang-SC-Medium;
+  font-family: PingFang-SC-Medium;
 }
 
-.goods-goodsTags{
+.goods-goodsTags {
   margin-top: 8rpx;
   width: 100%;
   height: 40rpx;
@@ -132,31 +144,69 @@
   display: flex;
   align-items: center;
 }
-.goods-goodsTags text{
+
+.goods-goodsTags text {
   text-align: center;
   display: inline-block;
   line-height: 20rpx;
   font-size: 20rpx;
   border-radius: 20rpx;
-  border: 1px solid #FF4C4E;
-  color:  #FF4C4E;
+  border: 1px solid #ff4c4e;
+  color: #ff4c4e;
   padding: 4rpx 12rpx;
 }
 
-.goods-goodsPrice{
+.goods-goodsPrice {
   position: absolute;
   bottom: 0;
   font-family: PingFang-SC-Bold;
   font-size: 28rpx;
   font-weight: bold;
-  color: #FF4C4E;
-  overflow:hidden; 
-  text-overflow:ellipsis;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:1; 
+  color: #ff4c4e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
-.searchResult-empty{
+/* 回到顶部 */
+
+.searchResult-group .btn_gotoTop {
+  position: fixed;
+  background: blue;
+  width: 88rpx;
+  height: 88rpx;
+  bottom: 100rpx;
+  right: 60rpx;
+}
+
+/* 购物车 */
+
+.searchResult-group .btn_cart {
+  position: fixed;
+  background: orange;
+  width: 88rpx;
+  height: 88rpx;
+  bottom: 200rpx;
+  right: 60rpx;
+}
+
+.btn_cart text {
+  display: inline-block;
+  line-height: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  background: red;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 50%;
+  padding: 4rpx 10rpx;
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+}
+
+.searchResult-empty {
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
