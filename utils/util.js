@@ -19,7 +19,17 @@ function trim(s) {
   return s.replace(/(^\s*)|(\s*$)/g, "");
 }
 
+/**
+ * 导出方法列表 
+ * 配合 // const utils = require("util.js") 使用
+ */
 module.exports = {
   formatTime: formatTime,
   trim: trim
 }
+
+/**
+ * 导出方法
+ * 配合 // import { formatNumber } from "util.js"
+ */
+export { formatNumber }

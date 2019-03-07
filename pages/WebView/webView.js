@@ -1,4 +1,7 @@
 // pages/WebView/webView.js
+
+import { configManager } from "../..//utils/config.js"
+
 Page({
 
   /**
@@ -18,7 +21,7 @@ Page({
     var prefixStart = url.indexOf("http");
     if (prefixStart != 0){
       //表示url不是以http开头；
-      url = "https://www.lishe.cn" + url + "?devicePlatform=2";
+      url = configManager.getWebDomain() + url + "?devicePlatform=2";
     }
     that.setData({
       url: url

@@ -49,7 +49,12 @@ Page({
   },
 
   onCateItemAction: e => {
-    console.log(e);
+    // console.log(e);
+    var cfgId = e.detail.cfgId;
+    var catId = e.detail.catId;
+    wx.navigateTo({
+      url: '/pages/SubCate/subCate?cfgId=' + cfgId + "&catId=" + catId,
+    })
   },
 
   // 网络请求

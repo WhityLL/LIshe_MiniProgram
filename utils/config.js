@@ -1,24 +1,42 @@
-var configApiDomain = {
 
-  test: "https://test.shopapi.lishe.cn",
+const configManager = {
 
-  uat: "https://uat.shopapi.lishe.cn",
+  getEnvirenment: function() {
+    // return "test";
+    // return "uat";
+    return "pro";
+  },
 
-  pro: "https://shopapi.lishe.cn"
-}
+  /**
+   * APIDomin
+   */
+  getApiDomain : function() {
+    var envirenment = this.getEnvirenment();
+    if (envirenment == "test") {
+      return "https://test.shopapi.lishe.cn";
+    } else if (envirenment == "uat") {
+      return "https://uat.shopapi.lishe.cn";
+    } else {
+      return "https://shopapi.lishe.cn";
+    }
+  },
 
-var getDomain = function (n) {
-  if (n == "test") {
-    return this.configApiDomain.test;
-  } else if (n == "uat") {
-    return this.configApiDomain.uat;
-  } else {
-    return this.configApiDomain.pro;
+  /**
+   * web页面
+   */
+  getWebDomain : function() {
+    var envirenment = this.getEnvirenment();
+    if (envirenment == "test") {
+      return "https://www.lishe.cn:8080";
+    } else if (envirenment == "uat") {
+      return "https://www.lishe.cn:8090";
+    } else {
+      return "https://www.lishe.cn";
+    }
   }
+
 }
 
-// 导出方法 提供给外界使用
-module.exports = {
-  configApiDomain: configApiDomain,
-  getDomain: getDomain
-}
+// 导出方法
+export { configManager }
+

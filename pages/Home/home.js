@@ -24,9 +24,6 @@ Page({
     });
 
     this.getHomeData();
-    
-    // var aa = config.getDomain("test");
-
   },
 
   // 网络请求
@@ -34,8 +31,8 @@ Page({
     var that = this;
     netManager.getHomeList({
       success: jsonData => {
-
         if (jsonData.result == 100 & jsonData.errcode == 0) {
+          // console.log(jsonData);
           var bannerData = jsonData.data.shuDetailList;
           // menu
           var menuItems = jsonData.data.hotType;
@@ -79,21 +76,28 @@ Page({
     })
   },
 
+  /**
+   * menuItem点击事件
+   */
   onclickCateItemAction: e => {
-    var itemConfigId = e.currentTarget.dataset.configid;
+    var cfgId = e.currentTarget.dataset.configid;
 
     wx.navigateTo({
-      url: '/pages/SubCate/subCate?itemConfigId=' + itemConfigId,
+      url: '/pages/SubCate/subCate?cfgId=' + cfgId,
     })
   },
 
-  // 热销点击事件
+  /**
+   * 热销点击事件
+   */
   onTapAdlistClickEvent: function (e){
     var itemId = e.target.dataset.id;
     console.log(itemId);
   },
 
-  // 点击跳转商品详情
+  /**
+   * 点击跳转商品详情
+   */
   onProductItemClickAction: e => {
     // console.log(e);
     var itemId = e.detail.itemId;

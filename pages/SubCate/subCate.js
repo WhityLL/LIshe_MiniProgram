@@ -14,9 +14,12 @@ Page({
   onLoad: function (options) {
     console.log(options);
     var that = this;
-    var itemConfigId = options.itemConfigId;
+    var cfgId = options.cfgId;
+    var catId = options.catId
+    
     that.setData({
-      itemConfigId: itemConfigId
+      cfgId: cfgId,
+      catId: catId
     })
   },
 

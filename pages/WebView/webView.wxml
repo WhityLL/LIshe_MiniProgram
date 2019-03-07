@@ -1,2 +1,2 @@
 <!--pages/WebView/webView.wxml-->
-<web-view src="{{url}}"></web-view>
+<web-view src="{{url}}" bindload='onWebViewLoadSuccess' binderror='onWebViewLoadFail'></web-view>

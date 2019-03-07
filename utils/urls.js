@@ -1,13 +1,16 @@
 
-const config = require("config.js")
+import { configManager } from "config.js"
 
 const urlManager = {
-
   // 首页
-  homeIndexUrl: config.configApiDomain.test + "/shopAPI.php/Index/wshopIndex",
-  //分类
-  categaryListUrl: config.configApiDomain.test + "/shopAPI.php/Items/classifyList"
+  homeIndexUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Index/wshopIndex";
+  },
 
+  //分类
+  categaryListUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Items/classifyList";
+  }
 }
 
 // 导出方法
