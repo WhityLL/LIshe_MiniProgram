@@ -22,6 +22,10 @@ const urlManager = {
 
   getCartNumUrl: function(){
     return configManager.getApiDomain() + "/shopAPI.php/Order/getCartNum";
+  },
+
+  getProductDetailUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Info/wshopIndex";
   }
 
 }

@@ -1,2 +1,107 @@
 <!--pages/ProductDetail/productDetail.wxml-->
-<text>商品ID={{itemId}}</text>
+
+
+<view class='container-view'>
+
+  <!-- segment -->
+  <view class='navi'>
+    <view class='navi-item' data-type='info' bindtap='onNaviClick'>商品</view>
+    <view class='navi-item' data-type='detail' bindtap='onNaviClick'>详情</view>
+  </view>
+
+  <!-- swiper -->
+  <swiper class='swiper-view' current="{{swiperCurrent}}" bindchange="swiperChange" autoplay='true' circular='true' indicator-dots='true'>
+    <block wx:for="{{new_list_images}}" wx:key="index">
+      <swiper-item>
+        <image src='{{item}}' bindtap="swipclick"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+  <!-- productInfo  -->
+  <view class='sction info-group'>
+    <view class='info-price'>{{minPointSku.point}}积分</view>
+    <view class='info-desc'>{{itemInfo.title}}</view>
+    <view class='info-shop'>{{shopName}}</view>
+  </view>
+
+  <view class='sction singleLine'>
+    <view class='cell'>
+      <view class='cell-contanier'>
+        <view class='cell-title'>促销</view>
+        <view class='cell-content'>
+          <view class='content-content'>{{freepostageLimitMoney}}</view>
+          <view class='cell-ic-more'>
+            <image src='/images/common/detail_ic_more_blk.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='sction singleLine'>
+    <view class='cell'>
+      <view class='cell-contanier'>
+        <view class='cell-title'>配送</view>
+        <view class='cell-content'>
+          <view class='content-content content-blod'>{{defaultAddress.newadd}}</view>
+          <view class='cell-ic-more'>
+            <image src='/images/common/detail_ic_more_blk.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='sction'>
+    <view class='cell'>
+      <view class='cell-contanier'>
+        <view class='cell-title'>已选</view>
+        <view class='cell-content'>
+          <view class='content-content content-blod'>{{minPointSku.spec_info}}</view>
+          <view class='cell-ic-more'>
+            <image src='/images/common/detail_ic_more_blk.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='cell'>
+      <view class='cell-contanier'>
+        <view class='cell-title'>说明</view>
+        <view class='cell-content'>
+          <view class='content-content'>
+            <view class='tags'>
+              <image src='/images/product/detail_ic_instruction.png'></image>
+              <text>7天无忧退货</text>
+            </view>
+            <view class='tags'>
+              <image src='/images/product/detail_ic_instruction.png'></image>
+              <text>快速退款</text>
+            </view>
+          </view>
+          <view class='cell-ic-more'>
+            <image src='/images/common/detail_ic_more_blk.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 详情富文本 -->
+  <view class='detail-header'>商品介绍</view>
+  <rich-text class='article' nodes="{{productDetailRichText}}"></rich-text>
+
+  <!-- 底部控制 -->
+  <view class='footer-control'>
+
+    <view class='footer-btn1'>购物车</view>
+    <view class='footer-btn1'>客服</view>
+    <view class='footer-btn1'>收藏</view>
+    <view class='footer-btnAdd'>加入购物车</view>
+    <view class='footer-btnBuy'>直接购买</view>
+
+  </view>
+
+</view>

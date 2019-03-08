@@ -50,6 +50,18 @@ const netManager = {
     this.requestJsonData(params);
   },
 
+  /**
+   * 获取分类页面数据
+   */
+  getProductDetail: function (params) {
+    var url = urlManager.getProductDetailUrl();
+    var itemId = params.itemId;
+    if (itemId) {
+      url = url + "?itemId=" + itemId;
+    }
+    params.url = url;
+    this.requestJsonData(params);
+  },
 
   /**
    * 热搜词汇
@@ -71,6 +83,8 @@ const netManager = {
       }
     });
   },
+
+
 
   /**
    * 获取购物车数量
