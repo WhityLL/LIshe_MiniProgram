@@ -58,7 +58,8 @@ Page({
   onSearchClick: function (event) {
     let that = this;
     let value = event.detail.value;
-
+    // redirectTo
+    // navigateTo
     wx.navigateTo({
       url: '/pages/search/search?keyword=' + value + "&cateid=" + that.data.currentNav,
     })

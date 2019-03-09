@@ -112,6 +112,8 @@ Page({
    */
   onSearchViewClickAction: function(e){
     var keywords = this.data.keywords;
+    // redirectTo
+    // navigateTo
     wx.navigateTo({
       url: '/pages/search/search?keywords=' + keywords,
     })
