@@ -1,6 +1,5 @@
 <!--pages/ProductDetail/productDetail.wxml-->
 
-
 <view class='container-view'>
 
   <!-- segment -->
@@ -27,66 +26,34 @@
   </view>
 
   <view class='sction singleLine'>
-    <view class='cell'>
-      <view class='cell-contanier'>
-        <view class='cell-title'>促销</view>
-        <view class='cell-content'>
-          <view class='content-content'>{{freepostageLimitMoney}}</view>
-          <view class='cell-ic-more'>
-            <image src='/images/common/detail_ic_more_blk.png'></image>
-          </view>
-        </view>
-      </view>
-    </view>
+    <productDetailCell title="促销" bindcellTap="onCellClickAction">
+      <view slot="cell-content-content" class='content-content'>{{freepostageLimitMoney}}</view>
+    </productDetailCell>
   </view>
 
   <view class='sction singleLine'>
-    <view class='cell'>
-      <view class='cell-contanier'>
-        <view class='cell-title'>配送</view>
-        <view class='cell-content'>
-          <view class='content-content content-blod'>{{defaultAddress.newadd}}</view>
-          <view class='cell-ic-more'>
-            <image src='/images/common/detail_ic_more_blk.png'></image>
-          </view>
-        </view>
-      </view>
-    </view>
+    <productDetailCell title="配送" bindcellTap="onCellClickAction">
+      <view slot="cell-content-content" class='content-content content-blod'>{{defaultAddress.newadd}}</view>
+    </productDetailCell>
   </view>
 
   <view class='sction'>
-    <view class='cell'>
-      <view class='cell-contanier'>
-        <view class='cell-title'>已选</view>
-        <view class='cell-content'>
-          <view class='content-content content-blod'>{{minPointSku.spec_info}}</view>
-          <view class='cell-ic-more'>
-            <image src='/images/common/detail_ic_more_blk.png'></image>
-          </view>
-        </view>
-      </view>
-    </view>
+    <productDetailCell title="已选" bindcellTap="onCellClickAction">
+      <view slot="cell-content-content" class='content-content content-blod'>{{minPointSku.spec_info}}</view>
+    </productDetailCell>
 
-    <view class='cell'>
-      <view class='cell-contanier'>
-        <view class='cell-title'>说明</view>
-        <view class='cell-content'>
-          <view class='content-content'>
-            <view class='tags'>
-              <image src='/images/product/detail_ic_instruction.png'></image>
-              <text>7天无忧退货</text>
-            </view>
-            <view class='tags'>
-              <image src='/images/product/detail_ic_instruction.png'></image>
-              <text>快速退款</text>
-            </view>
-          </view>
-          <view class='cell-ic-more'>
-            <image src='/images/common/detail_ic_more_blk.png'></image>
-          </view>
+    <productDetailCell title="说明">
+      <view slot="cell-content-content" class='content-content content-blod'>
+        <view class='tags'>
+          <image src='/images/product/detail_ic_instruction.png'></image>
+          <text>7天无忧退货</text>
+        </view>
+        <view class='tags'>
+          <image src='/images/product/detail_ic_instruction.png'></image>
+          <text>快速退款</text>
         </view>
       </view>
-    </view>
+    </productDetailCell>
   </view>
 
   <!-- 详情富文本 -->
@@ -96,11 +63,31 @@
   <!-- 底部控制 -->
   <view class='footer-control'>
 
-    <view class='footer-btn1'>购物车</view>
-    <view class='footer-btn1'>客服</view>
-    <view class='footer-btn1'>收藏</view>
-    <view class='footer-btnAdd'>加入购物车</view>
-    <view class='footer-btnBuy'>直接购买</view>
+    <view class='footer-btn1' bindtap='ontogoCartAction'>
+      <view class='footer-btn1-top'>
+        <image src='/images/product/detail_ic_cart.png'></image>
+        <text class='cart-num' wx:if="{{cartNum > 0}}">{{cartNum}}</text>
+      </view>
+      <text class='footer-btn1-title'>购物车</text>
+    </view>
+
+    <view class='footer-btn1' bindtap='ontogoOnlineServerAction'>
+      <view class='footer-btn1-top'>
+        <image src='/images/product/detial_ic_service.png'></image>
+      </view>
+      <text class='footer-btn1-title'>客服</text>
+    </view>
+
+    <view class='footer-btn1' bindtap='onFavoriteAction'>
+      <view class='footer-btn1-top'>
+        <image src='/images/product/detail_ic_favorite_select.png' wx:if='{{isFavorite == 1}}'></image>
+        <image src='/images/product/detail_ic_favorite.png' wx:else></image>
+      </view>
+      <text class='footer-btn1-title'>收藏</text>
+
+    </view>
+    <view class='footer-btnAdd' bindtap='onAddtoCartAction'>加入购物车</view>
+    <view class='footer-btnBuy' bindtap='onBuyAction'>直接购买</view>
 
   </view>
 

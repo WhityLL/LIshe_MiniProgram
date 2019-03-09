@@ -9,14 +9,15 @@ Page({
    */
   data: {
     swiperCurrent: 0,
-    minPointSku: {}
+    minPointSku: {},
+    isFavorite: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    // console.log(options);
     var that = this;
     var itemId = options.itemId;
     that.setData({
@@ -24,6 +25,15 @@ Page({
     })
 
     that.getProductData(itemId);
+
+    // 获取购物车数量
+    netManager.getCartNum({
+      success: e => {
+        that.setData({
+          cartNum: e
+        })
+      }
+    });
   },
 
   getProductData:function(itemId){
@@ -103,5 +113,59 @@ Page({
     console.log("点击了商品详情轮播图" + index);
   },
 
+  // cell点击事件
+  onCellClickAction: function (e){
+    var title = e.detail.title;
+    console.log(title);
+    if(title == "促销"){
+
+      return;
+    }
+    if (title == "配送"){
+
+      return;
+    }
+    if (title == "配送"){
+      
+      return;
+    }
+  },
+
+  /**
+   * 跳转到购物车
+   */
+  ontogoCartAction: function(e){
+    wx.switchTab({
+      url: '/pages/Cart/cart'
+    });
+  },
+
+  /**
+   * 在线客服
+   */
+  ontogoOnlineServerAction: function (e) {
+    console.log("在线客服");
+  },
+
+  /**
+   * 收藏 取消收藏
+   */
+  onFavoriteAction: function (e) {
+    console.log("收藏 取消收藏");
+  },
+
+  /**
+   * 加入购物车
+   */
+  onAddtoCartAction: function (e) {
+    console.log("加入购物车");
+  },
+
+  /**
+   * 立即 购买
+   */            
+  onBuyAction: function (e) {
+    console.log("立即 购买");
+  }
 
 })

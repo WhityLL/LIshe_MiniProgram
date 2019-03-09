@@ -157,6 +157,9 @@ Page({
     })
   },
 
+  /**
+   * 跳转到购物车
+   */
   onGotoCartAction: function (e) {
     wx.switchTab({
       url: '/pages/Cart/cart'

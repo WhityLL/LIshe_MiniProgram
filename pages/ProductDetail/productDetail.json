@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "productDetailCell": "/components/productDetailCellComponent/productDetailCellComponent"
+  }
 }

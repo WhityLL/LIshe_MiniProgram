@@ -1,1 +1,26 @@
 <!--pages/Cart/cart.wxml-->
+
+<view class='container-view'>
+
+  <!-- 顶部 -->
+  <view class='cart-headerView'> 地址</view>
+
+  <!-- 中间部分 -->
+  <view class='cart-wrap'>
+
+    <block wx:for='{{section.length}}' wx:key='{{index}}'>
+      <view class='section'>
+
+        <view class='section-header-normal'></view>
+        <view class='cell'></view>
+        <view class='cell'></view>
+        
+      </view>
+    </block>
+
+  </view>
+
+  <!-- 底部 -->
+  <view class='cart-footer'>结算</view>
+
+</view>

@@ -1,0 +1,19 @@
+<!--components/productDetailCellComponent/productDetailCellComponent.wxml-->
+
+<view class='cell'>
+  <view class='cell-contanier'  bindtap='onCellClickEvent'>
+    <!-- 标题 -->
+    <view class='title'>{{title}}</view>
+    <!-- 内容 -->
+    <view class='content'>
+      <!-- 左边 -->
+      <view class='cell-content-content'>
+        <slot name='cell-content-content'></slot>
+      </view>
+      <!-- 更多按钮 -->
+      <view class='cell-ic-more'>
+        <image src='/images/common/detail_ic_more_blk.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

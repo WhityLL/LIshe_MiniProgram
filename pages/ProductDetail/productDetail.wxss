@@ -11,6 +11,7 @@ page {
   overflow: auto;
   background: #f5f5f5;
   position: relative;
+  margin-bottom:28rpx;
 }
 
 /* *************** segment ****************** */
@@ -98,36 +99,6 @@ page {
   width: 100%;
 }
 
-.cell {
-  width: 100%;
-  height: 100%;
-  border-bottom: 2rpx solid #f5f5f5;
-}
-
-.cell-contanier {
-  height: 88rpx;
-  padding: 20rpx;
-  box-sizing: border-box;
-  display: flex;
-  align-items: flex-start;
-  align-content: center;
-}
-
-.cell-title {
-  flex-basis: 80rpx;
-  font-size: 24rpx;
-  color: #999;
-  height: 48rpx;
-  line-height: 48rpx;
-}
-
-.cell-content {
-  height: 48rpx;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .content-content {
   width: 100%;
   height: 100%;
@@ -141,17 +112,6 @@ page {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-}
-
-.cell-ic-more {
-  flex-basis: 48rpx;
-  padding: 0 10rpx;
-  box-sizing: border-box;
-}
-
-.cell-ic-more image {
-  width: 30rpx;
-  height: 30rpx;
 }
 
 .content-blod {
@@ -219,16 +179,53 @@ page {
   justify-content: space-between;
   padding: 14rpx 30rpx;
   box-sizing: border-box;
-  box-shadow: 0px 0px 0.30rpx 0 rgba(16,44,97,0.2);
+  box-shadow: 0px 0px 0.30rpx 0 rgba(16, 44, 97, 0.2);
 }
-.footer-btn1{
+
+.footer-btn1 {
   text-align: center;
   width: 80rpx;
   height: 100%;
-  font-size: 22rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer-btnAdd{
+.footer-btn1-top {
+  width: 100%;
+  height: 100%;
+  font: 12rpx;
+  position: relative;
+}
+
+.footer-btn1-top image {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.footer-btn1-top .cart-num {
+  display: inline-block;
+  position: absolute;
+  right: 10rpx;
+  top: -4rpx;
+  background: #ff4c4e;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18rpx;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+}
+
+.footer-btn1-title {
+  width: 100%;
+  flex-basis: 20rpx;
+  font-size: 20rpx;
+}
+
+.footer-btnAdd {
   color: #fff;
   height: 100%;
   padding: 0 35rpx;
@@ -240,7 +237,7 @@ page {
   border-radius: 35rpx;
 }
 
-.footer-btnBuy{
+.footer-btnBuy {
   color: #fff;
   height: 100%;
   padding: 0 35rpx;
