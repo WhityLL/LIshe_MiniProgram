@@ -12,8 +12,8 @@
       <view class='section'>
 
         <view class='section-header-normal'></view>
-        <view class='cell'></view>
-        <view class='cell'></view>
+        <cartProductCell class='cell'></cartProductCell>
+        <cartProductCell class='cell'></cartProductCell>
         
       </view>
     </block>
@@ -21,6 +21,25 @@
   </view>
 
   <!-- 底部 -->
-  <view class='cart-footer'>结算</view>
+  <view class='cart-footer'>
+    <view class='footer-left'>
+      <checkBoxA></checkBoxA>
+      <text>全选</text>
+    </view>
+    <view wx:if="{{isEdit == 0}}" class='footer-right'>
+      <view class='footer-btn'>去结算</view>
+      <view class='btn-totalInfo'>
+        <view class='totalInfo-price'>
+          <text id='total-title'>合计:</text>
+          <text>980积分</text>
+        </view>
+        <view class='totalInfo-desc'>不含运费</view>
+      </view>
+    </view>
+    <view wx:else class='footer-right'>
+      <view class='footer-btn'>删除</view>
+      <view class='footer-btn' style='margin-right:10rpx; background:orange;'>移入收藏夹</view>
+    </view>
+  </view>
 
 </view>

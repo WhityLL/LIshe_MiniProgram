@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    section:["a","b","c","d","e","f"]
+    section:["a","b","c","d","e","f"],
+    isEdit: 0
   },
 
   /**

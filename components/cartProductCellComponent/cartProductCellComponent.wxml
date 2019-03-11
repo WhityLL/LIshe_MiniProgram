@@ -1,0 +1,21 @@
+<!--components/cartProductCellComponent/cartProductCellComponent.wxml-->
+
+<view class='cell'>
+
+  <view class='cell-content'>
+    <view class='cell-left'>
+      <checkBoxA class='ckeckBoxA'></checkBoxA>
+      <image class='productImage'></image>
+    </view>
+    <view class='cell-right'>
+      <view class='cell-right-top'>
+        <text>北极绒 冬季典藏恒温健康被冬被200*230cm</text>
+      </view>
+      <view class='cell-right-bottom'>
+        <text class='product-desc'>规格：默认规格</text>
+        <view class='product-price'></view>
+      </view>
+    </view>
+  </view>
+
+</view>

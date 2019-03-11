@@ -1,0 +1,10 @@
+/* components/checkBox/checkBox.wxss */
+
+.checkBox{
+  width: 40rpx;
+  height: 40rpx;
+}
+.checkBox image{
+  width: 100%;
+  height: 100%;
+}
