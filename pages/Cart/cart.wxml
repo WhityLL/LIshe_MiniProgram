@@ -3,18 +3,42 @@
 <view class='container-view'>
 
   <!-- 顶部 -->
-  <view class='cart-headerView'> 地址</view>
+  <view class='cart-headerView'>
+    <text>{{addressData.addressArea}}</text>
+    <image src='/images/Cart/cart_ic_address.png '></image>
+  </view>
 
   <!-- 中间部分 -->
   <view class='cart-wrap'>
 
-    <block wx:for='{{section.length}}' wx:key='{{index}}'>
+    <!-- 正常商品 -->
+    <block wx:for='{{normalData}}' wx:key='{{item.shop_id}}'>
       <view class='section'>
 
+        <view class='section-header-normal'>
+          <view class='section-header-left'>
+            <checkBoxA isCheck="{{item.is_checked_for_shop}}" bindcheckBoxAClick="onShopCheckBoxAction" data-shopid="{{item.shop_id}}"></checkBoxA>
+            <view class='section-header-shop'>
+              <image src='/images/Cart/cart_ic_shop.png'></image>
+              <text>{{item.shop_name}}</text>
+            </view>
+          </view>
+          <view class='section-header-choudan'>满88积分包邮，去凑单</view>
+        </view>
+
+        <block wx:for='{{item.itemList}}' wx:key='{{item.sku_id}}'>
+          <cartProductCell class='cell' product="{{item}}" bindcheckProductClick="onProductCheckBoxAction"></cartProductCell>
+        </block>
+      </view>
+    </block>
+
+    <!-- 失效商品 -->
+    <block wx:for='{{expireData}}' wx:key='{{item.shop_id}}'>
+      <view class='section'>
         <view class='section-header-normal'></view>
-        <cartProductCell class='cell'></cartProductCell>
-        <cartProductCell class='cell'></cartProductCell>
-        
+        <block wx:for='{{item.itemList}}' wx:key='{{item.sku_id}}'>
+          <cartProductCell class='cell' product="{{item}}"></cartProductCell>
+        </block>
       </view>
     </block>
 
@@ -23,7 +47,7 @@
   <!-- 底部 -->
   <view class='cart-footer'>
     <view class='footer-left'>
-      <checkBoxA></checkBoxA>
+      <checkBoxA isCheck="{{allChecked}}" bindcheckBoxAClick="onAllCheckBoxAction"></checkBoxA>
       <text>全选</text>
     </view>
     <view wx:if="{{isEdit == 0}}" class='footer-right'>
@@ -31,7 +55,7 @@
       <view class='btn-totalInfo'>
         <view class='totalInfo-price'>
           <text id='total-title'>合计:</text>
-          <text>980积分</text>
+          <text>{{checkedTotalPoint}}积分</text>
         </view>
         <view class='totalInfo-desc'>不含运费</view>
       </view>

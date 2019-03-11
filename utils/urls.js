@@ -26,6 +26,14 @@ const urlManager = {
 
   getProductDetailUrl: function(){
     return configManager.getApiDomain() + "/shopAPI.php/Info/wshopIndex";
+  },
+
+  getCartUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Order/cart"
+  },
+
+  getCheckedCartItemUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Order/checkedCartItem"
   }
 
 }

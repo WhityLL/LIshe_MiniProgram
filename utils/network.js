@@ -84,8 +84,6 @@ const netManager = {
     });
   },
 
-
-
   /**
    * 获取购物车数量
    */
@@ -105,11 +103,43 @@ const netManager = {
   },
 
   /**
+   * 购物车列表
+   */
+  getCartList: function(params){
+    // url
+    params.url = urlManager.getCartUrl();
+
+    this.requestJsonData(params);
+  },
+
+  /**
+   * 选中 取消某一个SKU
+   */
+  getCheckedCartItem: function(params){
+    // url
+    var url = urlManager.getCheckedCartItemUrl();
+    var isCheck = params.isCheck;
+    var skuId = params.skuId;
+    var shopId = params.shopId;
+    var all = params.all;
+    if (skuId){
+      url = url + "?isCheck=" + isCheck + "&skuId=" + skuId;
+    } else if (shopId){
+      url = url + "?isCheck=" + isCheck + "&shopId=" + shopId;
+    }else{
+      url = url + "?isCheck=" + isCheck + "&all=" + all;
+    }
+
+    params.url = url;
+    this.requestJsonData(params);
+  },
+
+  /**
    * 网络请求（统一返回）
    */
   requestJsonData: params => {
-    var token = "b50a67d7db4487f702f6152c3db62aa4"; //正式
-    // var token = "944a5fb41951cedcb7412ccdb45149c7"; //测试
+    // var token = "b50a67d7db4487f702f6152c3db62aa4"; //正式
+    var token = "d6865070e354677d4a256042229490d6"; //测试
     var url = params.url;
   
     wx.request({
@@ -135,11 +165,14 @@ const netManager = {
           jsonData = jsonData.substr(0, jsonData.length - 2);
           jsonData = JSON.parse(jsonData);
         }
+        // console.log(jsonData);
 
-        //console.log(jsonData);
-
-        if (params && params.success && jsonData) {
-          params.success(jsonData);
+        if (jsonData.result == 100 && jsonData.errcode == 1){
+          console.log("未登陆" + url);
+        }else{
+          if (params && params.success && jsonData) {
+            params.success(jsonData);
+          }
         }
       },
       fail: err => {

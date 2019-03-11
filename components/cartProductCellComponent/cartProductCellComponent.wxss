@@ -27,7 +27,7 @@
 .productImage {
   width: 180rpx;
   height: 180rpx;
-  background: orange;
+  /* background: orange; */
 }
 
 .cell-right {
@@ -46,10 +46,15 @@
 }
 
 .cell-right-top text {
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #333;
   line-height: 36rpx;
-  display: inline-block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
 }
 
 .cell-right-bottom {
@@ -69,5 +74,9 @@
 .cell-right-bottom .product-price{
   width: 100%;
   height: 40rpx;
-  background: yellowgreen;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #FF4C4E;
+  line-height: 40rpx;
+  /* background: yellowgreen; */
 }

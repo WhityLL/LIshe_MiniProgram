@@ -1,6 +1,6 @@
 <!--components/checkBox/checkBox.wxml-->
 
-<view class='checkBox'>
+<view class='checkBox' bindtap='onCheckBoxClick'>
   <image wx:if="{{isCheck}}" src='/images/Cart/cart_ic_choose_select.png '></image>
   <image wx:else src='/images/Cart/cart_ic_choose_default.png'></image>
 </view>

@@ -32,6 +32,12 @@ Page({
     netManager.getCartNum({
       success: e =>{
         console.log(e);
+
+        wx.setTabBarBadge({
+          index: 2,
+          text: String(e), 
+        });
+
       }
     });
 

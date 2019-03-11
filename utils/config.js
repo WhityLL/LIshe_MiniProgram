@@ -2,9 +2,9 @@
 const configManager = {
 
   getEnvirenment: function() {
-    // return "test";
+    return "test";
     // return "uat";
-    return "pro";
+    // return "pro";
   },
 
   /**
@@ -13,9 +13,9 @@ const configManager = {
   getApiDomain : function() {
     var envirenment = this.getEnvirenment();
     if (envirenment === "test") {
-      return "https://test.shopapi.lishe.cn";
+      return "http://test.shopapi.lishe.cn";
     } else if (envirenment === "uat") {
-      return "https://uat.shopapi.lishe.cn";
+      return "http://uat.shopapi.lishe.cn";
     } else {
       return "https://shopapi.lishe.cn";
     }
@@ -39,4 +39,3 @@ const configManager = {
 
 // 导出方法
 export { configManager }
-
