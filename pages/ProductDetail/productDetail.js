@@ -1,6 +1,6 @@
 // pages/ProductDetail/productDetail.js
 
-import { netManager } from "../../utils/network.js"
+const app = getApp()
 
 Page({
 
@@ -27,7 +27,7 @@ Page({
     that.getProductData(itemId);
 
     // 获取购物车数量
-    netManager.getCartNum({
+    app.netManager.getCartNum({
       success: e => {
         that.setData({
           cartNum: e
@@ -39,7 +39,7 @@ Page({
   getProductData:function(itemId){
     var self = this;
 
-    netManager.getProductDetail({
+    app.netManager.getProductDetail({
       itemId: itemId,
       success: e => {
         console.log(e);

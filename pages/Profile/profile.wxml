@@ -13,48 +13,50 @@
 
   <!-- 我的订单开始 -->
   <view class='order-group'>
-    <a class="weui-cell  weui-cell_access" href="javascript:;">
-      <div class="weui-cell__bd weui-cell-title">
-        <p>我的订单</p>
-      </div>
-      <div class="weui-cell__ft"></div>
-    </a>
-
+    <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
+      <a class="weui-cell  weui-cell_access" href="javascript::">
+        <div class="weui-cell__bd weui-cell-title">
+          <p>我的订单</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+      </a>
+    </navigator>
     <ul>
       <li>
-        <a href="/wshop/order/orderList.html?status=WAIT_BUYER_PAY">
+        <!--  -->
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_pt.png" alt=""></image>
             <!--if-->
           </div>
           <p>待付款</p>
-        </a>
+        </navigator>
       </li>
       <li>
-        <a href="/wshop/order/orderList.html?status=WAIT_SELLER_SEND_GOODS">
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_dy.png" alt=""></image>
             <!--if-->
           </div>
           <p>待发货</p>
-        </a>
+        </navigator>
       </li>
       <li>
-        <a href="/wshop/order/orderList.html?status=WAIT_BUYER_CONFIRM_GOODS">
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_goods.png" alt=""></image>
             <!--if-->
           </div>
           <p>待收货</p>
-        </a>
+        </navigator>
       </li>
       <li>
-        <a href="/wshop/order/orderList.html?status=NO_APPLY">
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_refund.png" alt=""></image>
           </div>
           <p>退款/售后</p>
-        </a>
+        </navigator>
       </li>
     </ul>
   </view>

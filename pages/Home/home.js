@@ -2,8 +2,6 @@
 
 const app = getApp()
 
-import { netManager } from "../../utils/network.js"
-
 Page({
 
   /**
@@ -26,10 +24,10 @@ Page({
     this.getHomeData();
 
     // 获取热搜词汇
-    netManager.gethotSearchWords();
+    app.netManager.gethotSearchWords();
 
     // 获取购物车数量
-    netManager.getCartNum({
+    app.netManager.getCartNum({
       success: e =>{
         console.log(e);
 
@@ -46,7 +44,7 @@ Page({
   // 网络请求首页数据
   getHomeData: function(){
     var that = this;
-    netManager.getHomeList({
+    app.netManager.getHomeList({
       success: jsonData => {
         if (jsonData.result == 100 & jsonData.errcode == 0) {
           // console.log(jsonData);

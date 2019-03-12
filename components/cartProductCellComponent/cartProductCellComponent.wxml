@@ -3,17 +3,17 @@
 <view class='cell'>
 
   <view class='cell-content'>
-    <view class='cell-left'>
-      <checkBoxA class='ckeckBoxA' isCheck="{{product.is_checked}}" bindcheckBoxAClick="onProductCheckBoxAction"></checkBoxA>
-      <image class='productImage' src='{{product.image_default_id}}'></image>
-    </view>
-    <view class='cell-right'>
-      <view class='cell-right-top'>
-        <text>"{{product.title}}"</text>
-      </view>
-      <view class='cell-right-bottom'>
-        <text class='product-desc'>{{product.spec_info}}</text>
-        <view class='product-price'>{{product.point}}积分</view>
+    <checkBoxA isCheck="{{product.is_checked}}" bindcheckBoxAClick="onProductCheckBoxAction"></checkBoxA>
+    <view class='cell-right' bindtap="onProductAction">
+      <image src='{{product.image_default_id}}'></image>
+      <view class='cell-right-content'>
+        <view class='cell-right-top'>
+          <text>"{{product.title}}"</text>
+        </view>
+        <view class='cell-right-bottom'>
+          <text class='product-desc'>{{product.spec_info}}</text>
+          <view class='product-price'>{{product.point}}积分</view>
+        </view>
       </view>
     </view>
   </view>

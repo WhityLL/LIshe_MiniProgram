@@ -1,21 +1,21 @@
 
 import { urlManager } from "urls.js"
 
-const netManager = {
+class netManager {
   /**
    * 获取商城首页数据
    */
-  getHomeList: function(params){
+  getHomeList(params){
     // url
     params.url = urlManager.homeIndexUrl();
 
     this.requestJsonData(params);
-  },
+  }
 
   /**
    * 获取分类页面数据
    */
-  getCategaryList: function(params){
+  getCategaryList(params){
     var url = urlManager.categaryListUrl();
 
     var cfgId = params.cfgId;
@@ -24,12 +24,12 @@ const netManager = {
     }
     params.url = url;
     this.requestJsonData(params);
-  },
+  }
 
   /**
    * 搜索结果、三级分类页面
    */
-  getSearchList: function(params){
+  getSearchList(params){
     var url = urlManager.searchListUrl();
 
     var keywords = params.keywords ? params.keywords : "";
@@ -48,12 +48,12 @@ const netManager = {
 
     params.url = url;
     this.requestJsonData(params);
-  },
+  }
 
   /**
    * 获取分类页面数据
    */
-  getProductDetail: function (params) {
+  getProductDetail (params) {
     var url = urlManager.getProductDetailUrl();
     var itemId = params.itemId;
     if (itemId) {
@@ -61,13 +61,13 @@ const netManager = {
     }
     params.url = url;
     this.requestJsonData(params);
-  },
+  }
 
   /**
    * 热搜词汇
    * 是否在这里存储？？？？
    */
-  gethotSearchWords: function(){
+  gethotSearchWords(){
     var url = urlManager.getHotSearchWordsUrl();
     this.requestJsonData({
       url: url,
@@ -82,12 +82,12 @@ const netManager = {
         wx.setStorageSync('hotSearchWords', hotSearchWords);
       }
     });
-  },
+  }
 
   /**
    * 获取购物车数量
    */
-  getCartNum: function(params){  
+  getCartNum(params){  
     var cartNum;  
     var url = urlManager.getCartNumUrl();
     this.requestJsonData({
@@ -100,22 +100,22 @@ const netManager = {
         }
       }
     });
-  },
+  }
 
   /**
    * 购物车列表
    */
-  getCartList: function(params){
+  getCartList(params){
     // url
     params.url = urlManager.getCartUrl();
 
     this.requestJsonData(params);
-  },
+  }
 
   /**
    * 选中 取消某一个SKU
    */
-  getCheckedCartItem: function(params){
+  getCheckedCartItem(params){
     // url
     var url = urlManager.getCheckedCartItemUrl();
     var isCheck = params.isCheck;
@@ -126,18 +126,32 @@ const netManager = {
       url = url + "?isCheck=" + isCheck + "&skuId=" + skuId;
     } else if (shopId){
       url = url + "?isCheck=" + isCheck + "&shopId=" + shopId;
-    }else{
+    } else if (all){
       url = url + "?isCheck=" + isCheck + "&all=" + all;
     }
-
+    
+    console.log(url);
+    
     params.url = url;
     this.requestJsonData(params);
-  },
+  }
+
+
+  /**
+   * 删除购物车某一个商品
+   */
+  deleteCartItem(params){
+    var url = urlManager.getDeleteCartIdsUrl();
+    var cartId = params.cartId;
+    url = url + "?cartId=" + cartId;
+    params.url = url;
+    this.requestJsonData(params);
+  }
 
   /**
    * 网络请求（统一返回）
    */
-  requestJsonData: params => {
+  requestJsonData(params){
     // var token = "b50a67d7db4487f702f6152c3db62aa4"; //正式
     var token = "d6865070e354677d4a256042229490d6"; //测试
     var url = params.url;
@@ -151,15 +165,7 @@ const netManager = {
       success: function (e) {
         var jsonData = e.data;
         if (typeof jsonData === "string") {
-          // 返回的是jsonp类型的数据，所以要用正则表达式来匹配截取json数据
-
-          //let reg = /^\w+\((\{[^()]+\})\)$/;
-          //let matches = datas.match(reg);
-          // matches匹配到的是数组，数组第一个是所有正则表达式匹配的字符串，第二个是第一个小括号匹配到的字符串
-          //if (matches) {
-          //  let jsonData = JSON.parse(matches[1]);
-          //}
-
+          // 返回的是jsonp类型的数据，可以用正则表达式来匹配截取json数据
           jsonData = jsonData.trim(jsonData);
           jsonData = jsonData.replace("jsonpReturn(","");
           jsonData = jsonData.substr(0, jsonData.length - 2);
@@ -187,4 +193,4 @@ const netManager = {
 }
 
 // 导出方法 提供给外界使用
-export { netManager }
+export default netManager

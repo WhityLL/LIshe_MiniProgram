@@ -12,23 +12,24 @@
   <view class='cart-wrap'>
 
     <!-- 正常商品 -->
-    <block wx:for='{{normalData}}' wx:key='{{item.shop_id}}'>
+    <block wx:for='{{normalData}}' wx:for-index="sectionindex" wx:for-item="shop" wx:key='{{shop.shop_id}}'>
       <view class='section'>
 
         <view class='section-header-normal'>
           <view class='section-header-left'>
-            <checkBoxA isCheck="{{item.is_checked_for_shop}}" bindcheckBoxAClick="onShopCheckBoxAction" data-shopid="{{item.shop_id}}"></checkBoxA>
+            <checkBoxA isCheck="{{shop.is_checked_for_shop}}" bindcheckBoxAClick="onShopCheckBoxAction" data-shopid="{{shop.shop_id}}"></checkBoxA>
             <view class='section-header-shop'>
               <image src='/images/Cart/cart_ic_shop.png'></image>
-              <text>{{item.shop_name}}</text>
+              <text>{{shop.shop_name}}</text>
             </view>
           </view>
           <view class='section-header-choudan'>满88积分包邮，去凑单</view>
         </view>
 
-        <block wx:for='{{item.itemList}}' wx:key='{{item.sku_id}}'>
-          <cartProductCell class='cell' product="{{item}}" bindcheckProductClick="onProductCheckBoxAction"></cartProductCell>
-        </block>
+        <view wx:for='{{shop.itemList}}' wx:for-item="product" wx:key='{{product.sku_id}}' wx:for-index="index"  data-sectionindex='{{sectionindex}}' data-index="{{index}}" class="touch-item {{product.isTouchMove ? 'touch-move-active' : ''}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+          <cartProductCell class='cell' product="{{product}}" bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell>
+          <view class="del" catchtap="deleteProduct" data-index="{{index}}" data-section='{{sectionindex}}'>删除</view>
+        </view>
       </view>
     </block>
 
@@ -51,7 +52,7 @@
       <text>全选</text>
     </view>
     <view wx:if="{{isEdit == 0}}" class='footer-right'>
-      <view class='footer-btn'>去结算</view>
+      <view class='footer-btn' bindtap='onCOnfirmOrderAction'>去结算</view>
       <view class='btn-totalInfo'>
         <view class='totalInfo-price'>
           <text id='total-title'>合计:</text>

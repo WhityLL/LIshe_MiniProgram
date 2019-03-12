@@ -1,4 +1,8 @@
 //app.js
+
+import touch      from 'utils/touch.js'
+import netManager from 'utils/network.js'
+
 App({
   onLaunch: function () {
     var systemInfo = wx.getSystemInfoSync();
@@ -10,6 +14,10 @@ App({
   globalData: {
     systemInfo: null,
     userInfo: null
-  }
+  },
+
+  touch: new touch(),
+
+  netManager: new netManager()
 
 })

@@ -74,7 +74,7 @@ page{
     -webkit-box-flex: 1;
 }
 
-.container-view .order-group ul li a{
+.container-view .order-group ul li navigator{
   height: 100%;
   display: block;
   text-align: center;

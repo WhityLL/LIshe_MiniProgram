@@ -1,6 +1,6 @@
 // pages/SubCate/subCate.js
 
-import { netManager } from "../../utils/network.js"
+const app = getApp()
 
 Page({
 
@@ -32,7 +32,7 @@ Page({
     that.getSearchListData();
 
     // 获取购物车数量
-    netManager.getCartNum({
+    app.netManager.getCartNum({
       success: e => {
         that.setData({
           cartNum: e
@@ -57,7 +57,7 @@ Page({
     var catId = that.data.catId;
     var keywords = that.data.keywords;
 
-    netManager.getSearchList({
+    app.netManager.getSearchList({
       cfgId: cfgId,
       catId: catId,
       keywords: keywords,

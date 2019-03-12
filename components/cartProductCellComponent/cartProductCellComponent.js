@@ -29,9 +29,16 @@ Component({
         "skuid": that.properties.product.sku_id
        };
       var options = {};
-      // 发送事件名 ,并传递两个参数
-      // console.log(detail);
       this.triggerEvent("checkProductClick", detail, options);
+    },
+
+    onProductAction: function(e){
+      var that = this;
+      var detail = {
+        "itemid": that.properties.product.item_id
+      };
+      var options = {};
+      this.triggerEvent("productClick", detail, options);
     }
   }
 })

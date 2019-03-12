@@ -2,8 +2,6 @@
 
 const app = getApp()
 
-import { netManager } from "../../utils/network.js"
-
 Page({
 
   /**
@@ -70,7 +68,7 @@ Page({
   getCateListData: function () {
     var that = this;
     var itemCfgd = that.data.currentItemCfgd;
-    netManager.getCategaryList({
+    app.netManager.getCategaryList({
       cfgId: itemCfgd,
       success: jsonData => {
         if (jsonData.result == 100 & jsonData.errcode == 0) {

@@ -34,6 +34,10 @@ const urlManager = {
 
   getCheckedCartItemUrl: function(){
     return configManager.getApiDomain() + "/shopAPI.php/Order/checkedCartItem"
+  },
+
+  getDeleteCartIdsUrl: function(){
+    return configManager.getApiDomain() + "/shopAPI.php/Order/deleteCartId"
   }
 
 }

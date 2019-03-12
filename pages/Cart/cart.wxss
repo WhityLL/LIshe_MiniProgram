@@ -29,9 +29,9 @@ page {
   align-items: center;
 }
 
-.cart-headerView text{
+.cart-headerView text {
   font-size: 24rpx;
-  color: #FF4C4E;
+  color: #ff4c4e;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,7 +41,7 @@ page {
   line-height: 60rpx;
 }
 
-.cart-headerView image{
+.cart-headerView image {
   width: 22rpx;
   height: 70rpx;
 }
@@ -206,4 +206,40 @@ page {
   text-align: right;
   line-height: 34rpx;
   /* background: yellowgreen; */
+}
+
+.touch-item {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cell {
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+
+.del {
+  background-color: orangered;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active .cell, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
