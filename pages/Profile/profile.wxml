@@ -9,8 +9,8 @@
           <image src='/images/Profile/pay_ic_logo.png'></image>
         </view>
         <view class='user-info'>
-          <text class='nikiname'>Whity</text>
-          <text class='company'>深圳礼舍科技有限公司</text>
+          <text class='nikiname'>{{userInfo.name}}</text>
+          <text class='company'>{{userInfo.comName}}</text>
         </view>
 
         <view class='msg-center-entry'>
@@ -21,15 +21,15 @@
       </view>
       <view class='userinfo-msg'>
         <view class='userinfo-menuitem'>
-          <text class='userinfo-menuitem-value'>170.43</text>
+          <text class='userinfo-menuitem-value'>{{points}}</text>
           <text class='userinfo-menuitem-title'>礼舍积分</text>
         </view>
         <view class='userinfo-menuitem'>
-          <text class='userinfo-menuitem-value'>0</text>
+          <text class='userinfo-menuitem-value'>{{newDepositDetailList.zzgx.balance}}</text>
           <text class='userinfo-menuitem-title'>正章积分</text>
         </view>
         <view class='userinfo-menuitem'>
-          <text class='userinfo-menuitem-value'>10</text>
+          <text class='userinfo-menuitem-value'>{{collectCount}}</text>
           <text class='userinfo-menuitem-title'>收藏商品</text>
         </view>
       </view>
@@ -38,7 +38,7 @@
 
   <!-- 我的订单开始 -->
   <view class='order-group'>
-    <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
+    <navigator url='/pages/OrderList/orderList?status=' open-type='navigate'>
       <a class="weui-cell  weui-cell_access" href="javascript::">
         <div class="weui-cell__bd weui-cell-title">
           <p>我的订单</p>
@@ -52,35 +52,38 @@
         <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_pt.png" alt=""></image>
+            <text class='tips-order-num' wx:if="{{count.WAIT_BUYER_PAY > 0}}">{{count.WAIT_BUYER_PAY}}</text>
             <!--if-->
           </div>
           <p>待付款</p>
         </navigator>
       </li>
       <li>
-        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=WAIT_SELLER_SEND_GOODS' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_dy.png" alt=""></image>
             <!--if-->
+            <text class='tips-order-num' wx:if="{{count.WAIT_SELLER_SEND_GOODS > 0}}">{{count.WAIT_SELLER_SEND_GOODS}}</text>
           </div>
           <p>待发货</p>
         </navigator>
       </li>
       <li>
-        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_CONFIRM_GOODS' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_goods.png" alt=""></image>
             <!--if-->
+            <text class='tips-order-num' wx:if="{{count.WAIT_BUYER_CONFIRM_GOODS > 0}}">{{count.WAIT_BUYER_CONFIRM_GOODS}}</text>
           </div>
           <p>待收货</p>
         </navigator>
       </li>
       <li>
-        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=TRADE_FINISHED' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_refund.png" alt=""></image>
           </div>
-          <p>退款/售后</p>
+          <p>已完成</p>
         </navigator>
       </li>
     </ul>

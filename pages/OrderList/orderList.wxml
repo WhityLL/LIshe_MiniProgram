@@ -1,2 +1,38 @@
 <!--pages/OrderList/orderList.wxml-->
-<text>pages/OrderList/orderList.wxml</text>
+
+
+<view class='container-view'>
+
+  <segmentView segmentItems="{{segmentItems}}" bindsegmentItemTap="onSegmentItemClick"></segmentView>
+
+  <view class='order-list' wx:if="{{paymentTrade.length}}">
+
+    <!-- 正常商品 -->
+    <block wx:for='{{paymentTrade}}' wx:for-index="sectionindex" wx:for-item="section" wx:key='{{shop.shop_id}}'>
+      <view class='section'>
+        <view class='section-header'>
+          <view class='section-header-left'>
+            <view class='section-header-shop'>
+              <image src='/images/Cart/cart_ic_shop.png'></image>
+              <text>{{section.paymentId}}</text>
+            </view>
+          </view>
+          <view class='section-header-status'>交易完成</view>
+        </view>
+
+        <!-- <block wx:for='{{shop.itemList}}' wx:for-item="product" wx:key='{{product.sku_id}}' wx:for-index="index" data-sectionindex='{{sectionindex}}' data-index="{{index}}">
+          <cartProductCell class='cell' product="{{product}}" bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell>
+        </block> -->
+
+      </view>
+
+    </block>
+
+  </view>
+
+  <view class='order-empty' wx:else>
+    <image src='/images/Order/order_img_empty.png'></image>
+    <text>暂无订单</text>
+  </view>
+
+</view>

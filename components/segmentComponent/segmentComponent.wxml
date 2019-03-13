@@ -1,0 +1,7 @@
+<!--components/segmentComponent/segmentComponent.wxml-->
+
+<view class='segment-group'>
+  <block wx:for='{{segmentItems}}' wx:for-item="segmentItem" wx:key="{{segmentItem}}">
+    <view class="segment-item {{currentIndex == index ? 'active' : ''}}" bindtap='onSegmentItemClick' data-index='{{index}}'>{{segmentItem}}</view>
+  </block>
+</view>

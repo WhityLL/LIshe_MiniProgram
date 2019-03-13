@@ -36,8 +36,35 @@ Page({
    * 获取用户信息
    */
   getUsrCenterData: function(e){
+    var that = this;
+    app.netManager.getUserCenterInfo({
+      success: jsonResp => {
+        console.log(jsonResp);
+        if (jsonResp.errcode == 0 && jsonResp.result == 100){
+          var collectCount = jsonResp.data.collectCount;
+          var comId = jsonResp.data.comId;
+          var count = jsonResp.data.count;
+          var depositInfo = jsonResp.data.depositInfo;
+          var domainCom = jsonResp.data.domainCom;
+          var namesMResult = jsonResp.data.namesMResult;
+          var userInfo = namesMResult[0];
+          var newDepositDetailList = jsonResp.data.newDepositDetailList;
+          var points = jsonResp.data.points;
 
-
+          that.setData({
+            collectCount: collectCount,
+            comId: comId,
+            count: count,
+            depositInfo: depositInfo,
+            domainCom: domainCom,
+            namesMResult: namesMResult,
+            userInfo: userInfo,
+            newDepositDetailList: newDepositDetailList,
+            points: points
+          })
+        }
+      }
+    })
   }
 
 })

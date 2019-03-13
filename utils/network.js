@@ -149,11 +149,31 @@ class netManager {
   }
 
   /**
+   * 个人中心 用户信息 
+   */
+  getUserCenterInfo(params){
+    var url = urlManager.getUserCenterUrl();
+    params.url = url;
+    this.requestJsonData(params);
+  }
+
+  /**
+   * 订单列表
+   */
+  getOrderList(params){
+    var url = urlManager.getOrderListUrl();
+    var status = params.status;
+    url = url + "?status=" + status;
+    params.url = url;
+    this.requestJsonData(params);
+  }
+
+  /**
    * 网络请求（统一返回）
    */
   requestJsonData(params){
     // var token = "b50a67d7db4487f702f6152c3db62aa4"; //正式
-    var token = "d6865070e354677d4a256042229490d6"; //测试
+    var token = "a1b5359cf0fcdddfffa9c242d7a6b0cb"; //测试
     var url = params.url;
   
     wx.request({
