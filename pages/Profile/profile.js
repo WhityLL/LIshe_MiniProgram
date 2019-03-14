@@ -29,7 +29,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getUsrCenterData()
+    var that = this;
+    that.getUsrCenterData();
+
+    // 获取购物车数量
+    app.netManager.getUnReadMsgNum({
+
+      success: e => {
+        console.log(e);
+        that.setData({
+          unReadMsgNum: e
+        })
+      }
+      
+    });
   },
 
   /**

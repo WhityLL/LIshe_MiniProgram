@@ -1,62 +1,77 @@
-
-import { configManager } from "config.js"
+import {
+  configManager
+} from "config.js"
 
 const urlManager = {
   // 首页
-  homeIndexUrl: function(){
+  homeIndexUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Index/wshopIndex";
   },
 
   //分类
-  categaryListUrl: function(){
+  categaryListUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Items/classifyList";
   },
 
   //搜索结果
-  searchListUrl: function(){
+  searchListUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Items/searchList";
   },
 
   //热搜词汇
-  getHotSearchWordsUrl: function(){
+  getHotSearchWordsUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Items/hotSearch";
   },
 
   //购物车数量
-  getCartNumUrl: function(){
+  getCartNumUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Order/getCartNum";
   },
 
   //商品详情
-  getProductDetailUrl: function(){
+  getProductDetailUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Info/wshopIndex";
   },
 
   //购物车列表
-  getCartUrl: function(){
+  getCartUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Order/cart"
-  },  
+  },
 
   //勾选 取消勾选购物车商品
-  getCheckedCartItemUrl: function(){
+  getCheckedCartItemUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Order/checkedCartItem"
   },
 
   //删除购物车商品
-  getDeleteCartIdsUrl: function(){
+  getDeleteCartIdsUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Order/deleteCartId"
   },
 
   //个人中心 用户信息
-  getUserCenterUrl: function(){
+  getUserCenterUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/User/userCenter"
   },
 
-  getOrderListUrl: function(){
+  getUnReadMsgNumUrl: function() {
+    return configManager.getApiDomain() + "/shopAPI.php/Message/messageList"
+  },
+
+  getOrderListUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/User/orderList"
+  },
+
+  getFavListUrl: function() {
+    return configManager.getApiDomain() + "/shopAPI.php/Info/favList"
+  },
+
+  getUserJifenUrl: function() {
+    return configManager.getApiDomain() + "/shopAPI.php/User/jifen"
   }
 
 }
 
 // 导出方法
-export { urlManager }
+export {
+  urlManager
+}

@@ -1,0 +1,22 @@
+<!--pages/Colloction/coloection.wxml-->
+
+<view class='container-view'>
+
+  <navigator wx:for='{{productList}}' wx:key="{{item.gnotify_id}}" url='/pages/ProductDetail/productDetail?itemId={{item.item_id}}}'>
+
+    <view class='list-item' data-index='{{item.item_id}}'>
+      <image class='list-item-left' src='{{item.image_default_id}}'></image>
+      <view class='list-item-right'>
+        <text class='goods-text goods-title'>{{item.goods_name}}</text>
+
+        <view class='shop-info'>
+          <image src='/images/Cart/cart_ic_shop.png'></image>
+          <text class='goods-text shop-name'>{{item.shop_name}}积分</text>
+        </view>
+      </view>
+    </view>
+
+  </navigator>
+
+
+</view>

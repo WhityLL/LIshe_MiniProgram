@@ -20,9 +20,9 @@
           <view class='section-header-status'>交易完成</view>
         </view>
 
-        <!-- <block wx:for='{{shop.itemList}}' wx:for-item="product" wx:key='{{product.sku_id}}' wx:for-index="index" data-sectionindex='{{sectionindex}}' data-index="{{index}}">
-          <cartProductCell class='cell' product="{{product}}" bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell>
-        </block> -->
+       <!-- <cartProductCell wx:if="{{只有一个商品}}" class='cell' bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell>
+
+       <cartProductCell wx:else class='cell' bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell> -->
 
       </view>
 

@@ -1,0 +1,28 @@
+<!--pages/JiFen/jifen.wxml-->
+
+
+<view class='container-view'>
+
+  <view class='jifen-header'>
+    <text class='jifen-header-title'>礼舍积分余额</text>
+    <text class='jifen-header-jifen'>{{jf}}</text>
+    <button>积分充值</button>
+  </view>
+
+  <view class='jifen-title'>积分交易明细</view>
+  
+  <view class='listView' wx:for='{{depositLogList}}' wx:key="{{item.orderno}}">
+
+    <view class='jifen-item' data-index='{{item.item_id}}'>
+      
+      <view class='jifen-item-left'>
+        <text class='desc-title'>{{item.remark}}</text>
+        <text class='desc-time'>{{item.tradeTime}}</text>
+      </view>
+      <text class='jifen-value'>{{item.amount}}积分</text>
+    </view>
+
+  </view>
+
+
+</view>

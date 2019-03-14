@@ -11,7 +11,9 @@
     "pages/wxpay/wxpay",
     "pages/share/share",
     "pages/SubCate/subCate",
-    "pages/OrderList/orderList"
+    "pages/OrderList/orderList",
+    "pages/Colloction/coloection",
+    "pages/JiFen/jifen"
   ],
   "window": {
     "backgroundTextStyle": "light",

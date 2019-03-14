@@ -1,0 +1,86 @@
+/* pages/JiFen/jifen.wxss */
+
+.container-view {
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.jifen-header {
+  margin: 40rpx auto;
+  height: 310rpx;
+  /* border: 1rpx solid rebeccapurple; */
+  box-sizing: border-box;
+  border-radius: 16rpx;
+  box-shadow: 0 0 30rpx rgba(81, 60, 58, 0.2);
+  text-align: center;
+  padding: 30rpx;
+}
+
+.jifen-header-title{
+  height: 50rpx;
+  line-height: 50rpx;
+  display: block;
+  font-size: 34rpx;
+  color: #666;  
+  box-sizing: border-box;
+}
+
+.jifen-header-jifen{
+  display: block;
+  font-size: 80rpx;
+  color: #000;
+  font-weight: bold
+}
+
+.jifen-title {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 36rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.listView {
+  width: 100%;
+}
+
+.jifen-item {
+  width: 100%;
+  height: 140rpx;
+  /* border: 1rpx solid rebeccapurple; */
+  box-sizing: border-box;
+  position: relative;
+}
+
+.jifen-item-left {
+  float: left;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+
+.desc-title {
+  display: block;
+  color: #666;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+
+.desc-time {
+  display: block;
+  font-size: 28rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+
+.jifen-value {
+  float: left;
+  right: 0;
+  position: absolute;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 140rpx;
+}

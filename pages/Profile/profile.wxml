@@ -15,23 +15,35 @@
 
         <view class='msg-center-entry'>
           <image src='/images/Profile/home_ic_message.png'></image>
-          <text>4</text>
+          <text>{{unReadMsgNum}}</text>
         </view>
 
       </view>
       <view class='userinfo-msg'>
-        <view class='userinfo-menuitem'>
-          <text class='userinfo-menuitem-value'>{{points}}</text>
-          <text class='userinfo-menuitem-title'>礼舍积分</text>
-        </view>
-        <view class='userinfo-menuitem'>
-          <text class='userinfo-menuitem-value'>{{newDepositDetailList.zzgx.balance}}</text>
-          <text class='userinfo-menuitem-title'>正章积分</text>
-        </view>
-        <view class='userinfo-menuitem'>
-          <text class='userinfo-menuitem-value'>{{collectCount}}</text>
-          <text class='userinfo-menuitem-title'>收藏商品</text>
-        </view>
+
+        <navigator class='userinfo-menuitem' url='/pages/JiFen/jifen'>
+          <view>
+            <text class='userinfo-menuitem-value'>{{points}}</text>
+            <text class='userinfo-menuitem-title'>礼舍积分</text>
+          </view>
+        </navigator>
+
+
+        <navigator class='userinfo-menuitem'>
+          <view>
+            <text class='userinfo-menuitem-value'>{{newDepositDetailList.zzgx.balance}}</text>
+            <text class='userinfo-menuitem-title'>正章积分</text>
+          </view>
+        </navigator>
+
+
+        <navigator class='userinfo-menuitem' url='/pages/Colloction/coloection' open-type='navigate'>
+          <view>
+            <text class='userinfo-menuitem-value'>{{collectCount}}</text>
+            <text class='userinfo-menuitem-title'>收藏商品</text>
+          </view>
+        </navigator>
+
       </view>
     </view>
   </view>
