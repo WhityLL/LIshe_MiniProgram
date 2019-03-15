@@ -10,7 +10,8 @@ Page({
   data: {
     swiperCurrent: 0,
     minPointSku: {},
-    isFavorite: 1
+    isFavorite: 1,
+    showPopView: false
   },
 
   /**
@@ -159,6 +160,8 @@ Page({
    */
   onAddtoCartAction: function (e) {
     console.log("加入购物车");
+
+    this.setData({ showPopView: true });
   },
 
   /**
@@ -166,6 +169,10 @@ Page({
    */            
   onBuyAction: function (e) {
     console.log("立即 购买");
+  },
+
+  onClosePopView() {
+    this.setData({ showPopView: false });
   }
 
 })

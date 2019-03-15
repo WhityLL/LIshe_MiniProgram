@@ -9,10 +9,11 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.6.2",
 	"appid": "wx974377354dae37df",
 	"projectname": "Lishe_miniProgram",
 	"debugOptions": {

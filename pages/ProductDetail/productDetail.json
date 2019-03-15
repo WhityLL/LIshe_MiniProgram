@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "详情",
   "usingComponents": {
-    "productDetailCell": "/components/productDetailCellComponent/productDetailCellComponent"
+    "productDetailCell": "/components/productDetailCellComponent/productDetailCellComponent",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
+    "van-stepper": "/miniprogram_npm/vant-weapp/stepper/index"
   }
 }

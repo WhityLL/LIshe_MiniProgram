@@ -6,7 +6,7 @@
   <view class='jifen-header'>
     <text class='jifen-header-title'>礼舍积分余额</text>
     <text class='jifen-header-jifen'>{{jf}}</text>
-    <button>积分充值</button>
+    <van-button type="primary">积分充值</van-button>
   </view>
 
   <view class='jifen-title'>积分交易明细</view>

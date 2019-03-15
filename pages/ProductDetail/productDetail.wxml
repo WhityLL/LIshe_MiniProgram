@@ -1,6 +1,6 @@
 <!--pages/ProductDetail/productDetail.wxml-->
 
-<view class='container-view'>
+<view class='container-view' class="{{showPopView ? 'preventTouchMove' : ' '}}">
 
   <!-- segment -->
   <view class='navi'>
@@ -16,7 +16,6 @@
       </swiper-item>
     </block>
   </swiper>
-
 
   <!-- productInfo  -->
   <view class='sction info-group'>
@@ -92,3 +91,31 @@
   </view>
 
 </view>
+
+<van-popup show="{{ showPopView }}" position="bottom" duration="300" overlay-style='background-color:rgba(0, 0, 0, .2);'    custom-style='overflow-y: inherit;' bind:close="onClosePopView">
+  <view class='popview'>
+    <view class='pop-goodsInfo'>
+      <view class='pop-imgbgview'>
+        <image src=''></image>
+      </view>
+      <view class='pop-info-right'>
+        <text class='pop-goods-title'>韩国热蒂（REDDY）蜂蜜水光亮泽霜 50ml</text>
+        <text class='pop-goods-spec'>198积分</text>
+        <text class='pop-goods-price'>原价980</text>
+      </view>
+      <view style="clear:both;"></view>
+    </view>
+    <view class='pop-content'>
+      <view class='pop-goodsSpec'>
+        <text class='pop-goodsSpec-title'>请选择</text>
+        <view class='pop-menu-group'></view>
+      </view>
+      <view class='pop-ChooseNun'>
+        <text class='pop-ChooseNun-title'>数量：</text>
+        <van-stepper value="{{ 1 }}" bind:change="onChange" />
+      </view>
+    </view>
+
+    <view class='pop-bottomConfirm'>加入购物车</view>
+  </view>
+</van-popup>
