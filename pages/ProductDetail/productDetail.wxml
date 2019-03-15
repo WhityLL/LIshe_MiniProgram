@@ -96,23 +96,29 @@
   <view class='popview'>
     <view class='pop-goodsInfo'>
       <view class='pop-imgbgview'>
-        <image src=''></image>
+        <image src='{{itemInfo.image_default_id}}'></image>
       </view>
       <view class='pop-info-right'>
-        <text class='pop-goods-title'>韩国热蒂（REDDY）蜂蜜水光亮泽霜 50ml</text>
-        <text class='pop-goods-spec'>198积分</text>
-        <text class='pop-goods-price'>原价980</text>
+        <text class='pop-goods-title'>{{currentSku.title}}</text>
+        <text class='pop-goods-spec'>{{currentSku.point}}积分</text>
+        <text class='pop-goods-price'>原价{{currentSku.point}}</text>
       </view>
       <view style="clear:both;"></view>
     </view>
     <view class='pop-content'>
       <view class='pop-goodsSpec'>
         <text class='pop-goodsSpec-title'>请选择</text>
-        <view class='pop-menu-group'></view>
+        <view class='pop-menu-group'>
+        <block wx:for='{{sKuList}}' wx:for-item="sku" wx:key='sku.sku_id'>
+          <view class="sku-item {{currentSku.sku_id == sku.sku_id ? 'sku-item-selected' : ''}}" data-skuid='{{sku.sku_id}}' bindtap='onSkuItemClick' >{{sku.spec_info ? sku.spec_info : "默认规格"}}</view>
+        </block>
+        <view style="clear:both;"></view>
+        </view>
       </view>
+      <view style="clear:both;"></view>
       <view class='pop-ChooseNun'>
         <text class='pop-ChooseNun-title'>数量：</text>
-        <van-stepper value="{{ 1 }}" bind:change="onChange" />
+        <van-stepper value="{{ 1 }}" integer="true" disable-input="true" min="1" max="{{currentSku.store}}" bind:change="onChange" />
       </view>
     </view>
 

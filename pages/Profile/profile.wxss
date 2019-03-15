@@ -211,7 +211,7 @@ page {
   overflow: hidden;
 }
 
-.weui-cell-title {
+ .weui-cell-title {
   height: 50rpx;
 }
 
@@ -222,24 +222,23 @@ page {
   color: rgba(16, 29, 55, 1);
   line-height: 50rpx;
 }
-
+/*
 .weui-cells {
   margin-top: 30rpx;
 }
 
 .weui-cells .weui-cell_access {
   font-size: 36rpx;
-}
+} */
 
 /* 修改系统的样式 改为无边框 */
-
-.weui-cells::before {
+/* .weui-cells::before {
   border: none;
 }
 
 .weui-cell::before {
   border-top: none;
-}
+} */
 
 .btn_logout {
   font-size: 38rpx;

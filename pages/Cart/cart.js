@@ -9,7 +9,8 @@ Page({
    */
   data: {
     allChecked: "0",
-    isEdit: 0
+    isEdit: 0,
+    cartNum: 0
   },
 
   /**
@@ -18,6 +19,16 @@ Page({
   onLoad: function(options) {
     var that = this;
 
+    // 获取购物车数量
+    app.netManager.getCartNum({
+      success: e => {
+        that.setData({
+          cartNum: e
+        });
+      }
+    });
+
+    // 购物车列表
     that.getCartData();
   },
 
@@ -25,7 +36,7 @@ Page({
     var that = this;
     app.netManager.getCartList({
       success: jsonData => {
-        // console.log(jsonData);
+        console.log(jsonData);
         if (jsonData.result == 100 & jsonData.errcode == 0) {
           var addressData = jsonData.data.address;
           var normalData = jsonData.data.normal;

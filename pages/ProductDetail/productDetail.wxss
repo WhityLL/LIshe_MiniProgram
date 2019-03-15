@@ -278,16 +278,6 @@ page {
   /* border: 1rpx solid #999; */
 }
 
-.pop-content {
-  position: absolute;
-  top: 200rpx;
-  bottom: 100rpx;
-  overflow-y: auto;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1rpx solid lightgoldenrodyellow;
-}
-
 .pop-imgbgview {
   position: relative;
   top: -32px;
@@ -303,7 +293,7 @@ page {
   display: -webkit-box;
   -webkit-box-align: center;
   -webkit-box-pack: center;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
 }
 
 .pop-imgbgview image {
@@ -346,32 +336,66 @@ page {
   margin-top: 6rpx;
 }
 
+.pop-content {
+  position: absolute;
+  top: 200rpx;
+  bottom: 100rpx;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  /* border: 1rpx solid lightgoldenrodyellow; */
+}
+
 .pop-goodsSpec {
-  width: 95%;
+  width: 100%;
   border-bottom: 1rpx solid #e5e5e5;
-  /* padding: 20rpx 0; */
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
 .pop-goodsSpec-title {
   display: block;
-  font-size: 34rpx;
+  font-size: 30rpx;
   color: #333;
   line-height: 80rpx;
 }
 
 .pop-menu-group {
   width: 100%;
-  height: 200rpx;
-  background: lemonchiffon;
+  /* background: lemonchiffon; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sku-item {
+  height: 54rpx;
+  line-height: 52rpx;
+  font-size: 24rpx;
+  color: #666;
+  border: 1rpx solid #666;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 20rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  margin-right: 20rpx;
   margin-bottom: 20rpx;
+  max-width: 100%;
+  min-width: 100rpx;
+  cursor: pointer;
+}
+
+.sku-item-selected {
+  color: #ff4c4e;
+  border: 1rpx solid #ff4c4e;
 }
 
 .pop-ChooseNun {
-  width: 95%;
   height: 110rpx;
-  margin: 0 auto;
   border-bottom: 1rpx solid #e5e5e5;
   box-sizing: border-box;
   display: flex;
@@ -380,15 +404,19 @@ page {
 }
 
 .pop-ChooseNun-title {
-  font-size: 34rpx;
+  font-size: 30rpx;
   color: #333;
   line-height: 90rpx;
 }
 
 .pop-bottomConfirm {
   width: 100%;
-  height: 90rpx;
+  height: 80rpx;
   position: fixed;
   bottom: 0;
   background: orange;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 80rpx;
 }

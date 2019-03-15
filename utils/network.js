@@ -208,7 +208,7 @@ class netManager {
    */
   requestJsonData(params){
     // var token = "b50a67d7db4487f702f6152c3db62aa4"; //正式
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIzNTY0MCIsImNvbUlkIjoiMTUxNTM5NzkyMjYxNCIsImFjY291bnQiOiIxMzY2MjYzMzg5MCIsInVzZXJOYW1lIjoiQW5nZWxpbmEifQ.-nhW9Hp7-INkHw8HgIQkZnuc2JMrDW1HJKtstmt3fR8"; //测试
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyNjk5MyIsImNvbUlkIjoiMTUxMzMwOTQ0MTQ3MSIsImFjY291bnQiOiIxNTIwNjI3MTE1MyIsInVzZXJOYW1lIjoiXHU3ZWI4XHU3YmIxIn0._smLpQ6CrN7_V2JJMUjx7EWit-trKRRxXjG8km1nqUQ"; //测试
     var url = params.url;
   
     wx.request({

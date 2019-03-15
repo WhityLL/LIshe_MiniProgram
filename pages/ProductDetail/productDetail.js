@@ -69,6 +69,7 @@ Page({
 
     /// 默认选择最小价格的sku
     var minPointSku = that.data.sKuList[0];
+    var currentSku = that.data.sKuList[0];
     for (var i = 1; i < that.data.sKuList.length - 1; i++){
       var temp = that.data.sKuList[i];
       if (temp.point < minPointSku.point){
@@ -76,7 +77,8 @@ Page({
       }
     }
     that.setData({
-      minPointSku: minPointSku
+      minPointSku: minPointSku,
+      currentSku: currentSku
     });
 
     /// 获取默认地址
@@ -173,6 +175,21 @@ Page({
 
   onClosePopView() {
     this.setData({ showPopView: false });
+  },
+
+  onSkuItemClick:function(e){
+    var that = this;
+    var skuId = e.currentTarget.dataset.skuid;
+    for (var i = 0; i < that.data.sKuList.length; i++) {
+      var temp = that.data.sKuList[i];
+      if (temp.sku_id == skuId) {
+        that.setData({
+          currentSku: temp
+        });
+        break;
+      }
+    }
+
   }
 
 })

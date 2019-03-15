@@ -1,6 +1,6 @@
 <!--pages/Cart/cart.wxml-->
 
-<view class='container-view'>
+<view class='container-view' wx:if="{{cartNum > 0}}">
 
   <!-- 顶部 -->
   <view class='cart-headerView'>
@@ -67,4 +67,8 @@
     </view>
   </view>
 
+</view>
+
+<view class='cart-emptyview' wx:else>
+  购物车空空如也
 </view>
