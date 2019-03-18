@@ -1,6 +1,6 @@
 <!--pages/SubCate/subCate.wxml-->
 
-<view class='container-view'>
+<view class='container-view' class="{{showSortPopView ? 'preventTouchMove' : ' '}}">
   <!-- 搜索框 -->
   <view class='top-group'>
     <view class='header-group-left' bindtap='onSearchViewClickAction'>
@@ -11,11 +11,11 @@
   </view>
 
   <view class="bottom-group" wx:if='{{!showSearchGroup}}'>
-    <view class="sort-group {{menuFixed ? 'fixed': ''}} stickyClass" id="affix">
+    <view class="sort-group stickyClass">
       <view class='sort-group-item'>综合</view>
       <view class='sort-group-item'>销量</view>
       <view class='sort-group-item'>价格</view>
-      <view class='sort-group-item'>筛选</view>
+      <view class='sort-group-item' bindtap='onSortClickEvent'>筛选</view>
     </view>
 
     <view class='searchResult-group' wx:if='{{list.length}}'>
@@ -43,3 +43,29 @@
   </view>
 
 </view>
+
+<van-popup show="{{ showSortPopView }}" position="right" duration="300" overlay-style='background-color:rgba(0, 0, 0, .2);' custom-style='overflow-y: inherit;' close-on-click-overlay="false" safe-area-inset-bottom>
+  <view class='popview'>
+    <view class='section'>
+      <view class='section-title'>礼舍服务</view>
+      <view class='server-list'>
+        <text>京东优选</text>
+        <text>网易严选</text>
+        <text>顺丰优选</text>
+        <text>自营</text>
+      </view>
+    </view>
+    <view class='section'>
+      <view class='section-title'>积分区间</view>
+      <view class='price_range'>
+        <input class="min_price" maxlength="5" type="number" placeholder="最低价" avalon-events="input:_6,compositionstart:_4,compositionend:_5"></input>
+        <view class='seperateLine'>-</view>
+        <input class="max_price" maxlength="5" type="number" placeholder="最高价" avalon-events="input:_6,compositionstart:_4,compositionend:_5"></input>
+      </view>
+    </view>
+    <view class='section'>
+      <view class='section-title'>分类(单选)</view>
+    </view>
+  </view>
+
+</van-popup>

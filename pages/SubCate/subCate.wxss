@@ -75,11 +75,6 @@
   z-index: 10;
 }
 
-/* .fixed{
-  position: fixed;
-  top: 0; 
-} */
-
 .stickyClass {
   position: sticky;
   top: 0;
@@ -149,7 +144,7 @@
 .goods-goodsTags text {
   text-align: center;
   display: inline-block;
-  line-height: 20rpx;
+  line-height: 22rpx;
   font-size: 20rpx;
   border-radius: 20rpx;
   border: 1px solid #ff4c4e;
@@ -213,4 +208,91 @@
   line-height: 80rpx;
   text-align: center;
   font-size: 28rpx;
+}
+
+/* popview */
+
+.preventTouchMove {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 0;
+}
+
+.popview {
+  width: 600rpx;
+  height: 1334rpx;
+  background: #f5f5f5;
+  position: relative;
+  padding: 30rpx;
+}
+
+.section {
+  overflow: hidden;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: bold;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline;
+}
+
+.server-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.server-list text {
+  width: 185rpx;
+  height: 60rpx;
+  line-height: 62rpx;
+  /* margin-right: 24rpx; */
+  background: #ededed;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 60rpx;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.price_range{
+  width: 100%;
+  height: 70rpx;  
+}
+
+.seperateLine{
+  display: inline-block;
+  height: 120rpx;
+  width: 70rpx;
+  color: #999;
+  font-size: 34rpx;
+}
+
+.price_range input {
+  width: 240rpx;
+  font-size: 28rpx;
+  height: 60rpx;
+  border: none;
+  background: #ededed;
+  border-radius: 50rpx;
+  text-align: center;
+  outline: none;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  line-height: 60rpx;
+  display: inline-block;
 }

@@ -9,7 +9,7 @@ Page({
    */
   data: {
     showGoTop: false,
-    menuFixed: false,
+    showSortPopView: false
   },
 
   /**
@@ -40,15 +40,6 @@ Page({
       }
     });
 
-    // 查询id为affix的元素 离顶部的距离
-    var query = wx.createSelectorQuery();
-    query.select('#affix').boundingClientRect()
-    query.exec(function (res) {
-      that.setData({
-        menuTop: res[0].top
-      })
-    });
-    
   },
 
   getSearchListData: function(e){
@@ -134,17 +125,6 @@ Page({
         showGoTop: false
       });
     }
-    // 吸顶效果 【使用了position: sticky;这里的判断和上面的查询（createSelectorQuery）可以省略】
-    // if (e.scrollTop > that.data.menuTop) {
-    //   that.setData({
-    //     menuFixed: true
-    //   })
-    // } else {
-    //   that.setData({
-    //     menuFixed: false
-    //   })
-    // }
-
   },
 
   onBackToTopAction: function(e){
@@ -165,6 +145,15 @@ Page({
       url: '/pages/Cart/cart'
     });
   },
+
+  onSortClickEvent: function (e) {
+    var that = this;
+    var showSortPopView = this.data.showSortPopView;
+    that.setData({
+      showSortPopView: !showSortPopView
+    })
+
+  }
 
 })
 

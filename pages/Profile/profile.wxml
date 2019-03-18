@@ -103,12 +103,87 @@
   <!-- 我的订单结束 -->
 
   <!-- 下边cell开始 -->
-  <view class="weui-cells">
+  <van-cell-group>
+    <van-cell icon="/images/Cart/cart_ic_choose_select.png">
+      <view slot="title">
+        <view class="van-title-cell-text">我的服务</view>
+      </view>
+    </van-cell>
+
+    <van-cell is-link>
+      <view slot="title">
+        <view class="van-cell-text">我的资产</view>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src='/images/Profile/po_icon_assets.png'></image>
+      </view>
+    </van-cell>
+    <!-- <van-cell title="我的优惠券" icon="/images/Profile/po_icon_cs1.png" is-link /> -->
+    <van-cell is-link icon="shop-o">
+      <view slot="title">
+        <view class="van-cell-text">我的优惠券</view>
+        <van-tag round type="danger">9</van-tag>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src='/images/Profile/po_icon_cs1.png'></image>
+      </view>
+    </van-cell>
+    <!-- <van-cell title="我的福利券" icon="/images/Profile/po_icon_cs.png" is-link /> -->
+    <van-cell is-link>
+      <view slot="title">
+        <view class="van-cell-text">我的福利券</view>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src='/images/Profile/po_icon_cs.png'></image>
+      </view>
+    </van-cell>
+    <!-- <van-cell title="修改密码" icon="/images/Profile/po_icon_pd.png" is-link /> -->
+    <van-cell is-link>
+      <view slot="title">
+        <view class="van-cell-text">修改密码</view>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src='/images/Profile/po_icon_pd.png'></image>
+      </view>
+    </van-cell>
+
+    <!-- <van-cell title="地址管理" icon="/images/Profile/po_icon_as.png" is-link /> -->
+    <van-cell is-link>
+      <view slot="title">
+        <view class="van-cell-text">地址管理</view>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src="/images/Profile/po_icon_as.png"></image>
+      </view>
+    </van-cell>
+    <!-- <van-cell title="新手引导" icon="/images/Profile/po_icon_guide.png" is-link /> -->
+    <van-cell is-link>
+      <view slot="title">
+        <view class="van-cell-text">新手引导</view>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src="/images/Profile/po_icon_guide.png"></image>
+      </view>
+    </van-cell>
+    <!-- <van-cell title="关于礼舍" icon="/images/Profile/po_icon_about.png" is-link /> -->
+    <van-cell is-link>
+      <view slot="title">
+        <view class="van-cell-text">关于礼舍</view>
+      </view>
+      <view slot="icon">
+        <image class='cell-icon' src="/images/Profile/po_icon_about.png"></image>
+      </view>
+    </van-cell>
+
+  </van-cell-group>
+
+  <!-- <view class="weui-cells">
     <div class="weui-cell weui-cell-title">
       <div class="weui-cell__bd">
         <p>我的服务</p>
       </div>
     </div>
+
     <a class="weui-cell weui-cell_access" href="javascript::">
       <view class="weui-cell__hd">
         <image src='/images/Profile/po_icon_assets.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
@@ -180,7 +255,7 @@
       </view>
       <view class="weui-cell__ft"></view>
     </a>
-  </view>
+  </view> -->
   <!-- 下边cell结束-->
 
   <button class='btn_logout' type='warn'>退出登录</button>

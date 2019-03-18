@@ -134,14 +134,14 @@ page {
   padding: 25rpx 10rpx;
 }
 
-.userinfo-menuitem .userinfo-menuitem-value{
+.userinfo-menuitem .userinfo-menuitem-value {
   font-size: 30rpx;
   color: #000;
   font-weight: bold;
   display: block;
 }
 
-.userinfo-menuitem .userinfo-menuitem-title{
+.userinfo-menuitem .userinfo-menuitem-title {
   font-size: 30rpx;
   color: #999;
   display: block;
@@ -187,7 +187,7 @@ page {
   height: 50rpx;
 }
 
-.container-view .order-group ul li div .tips-order-num{
+.container-view .order-group ul li div .tips-order-num {
   background: #ff4c4e;
   height: 32rpx;
   line-height: 28rpx;
@@ -202,26 +202,44 @@ page {
   padding: 2rpx 10rpx;
 }
 
-.container-view .order-group ul li p {
-  margin-top: 20rpx;
-  color: #000;
-  font-size: 14px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
- .weui-cell-title {
-  height: 50rpx;
-}
-
 .weui-cell-title p {
   font-size: 42rpx;
   font-family: PingFang-SC-Bold;
   font-weight: bold;
   color: rgba(16, 29, 55, 1);
   line-height: 50rpx;
+} 
+
+.van-title-cell-text{
+  font-size: 42rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(16, 29, 55, 1);
+  /* line-height: 50rpx; */
 }
+
+.van-cell-text {
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(16, 29, 55, 1);
+  line-height: 50rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.cell-icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+/* .custom-class {
+font-size: 30rpx;
+  color: red;
+  line-height: 50rpx;
+} */
+
+
 /*
 .weui-cells {
   margin-top: 30rpx;
@@ -232,6 +250,7 @@ page {
 } */
 
 /* 修改系统的样式 改为无边框 */
+
 /* .weui-cells::before {
   border: none;
 }
