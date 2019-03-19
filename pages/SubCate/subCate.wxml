@@ -44,15 +44,15 @@
 
 </view>
 
-<van-popup show="{{ showSortPopView }}" position="right" duration="300" overlay-style='background-color:rgba(0, 0, 0, .2);' custom-style='overflow-y: inherit;' close-on-click-overlay="false" safe-area-inset-bottom>
+<van-popup show="{{ showSortPopView }}" position="right" duration="300" overlay-style='background-color:rgba(0, 0, 0, .2);'  close-on-click-overlay="false" safe-area-inset-bottom>
+
   <view class='popview'>
     <view class='section'>
       <view class='section-title'>礼舍服务</view>
       <view class='server-list'>
-        <text>京东优选</text>
-        <text>网易严选</text>
-        <text>顺丰优选</text>
-        <text>自营</text>
+        <block wx:for="{{severlistArr}}" wx:for-index="index" wx:key="{{item}}">
+          <text class="{{currentServerIndex == index ? 'server-active' : ''}}" bindtap='onServerItemAction' data-index='{{index}}'>{{item}}</text>
+        </block> 
       </view>
     </view>
     <view class='section'>
@@ -65,6 +65,15 @@
     </view>
     <view class='section'>
       <view class='section-title'>分类(单选)</view>
+      <image class='selected-cate-img' src=''></image>
+      <view class='selected-cate'>选择分类</view>
+    </view>
+
+    <view class='pop-footer'>
+
+      <van-button class='footer-btn' block >重置</van-button>
+      <van-button class='footer-btn' block type="danger">确认</van-button>
+
     </view>
   </view>
 

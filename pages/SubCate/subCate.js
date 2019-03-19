@@ -8,8 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    severlistArr: ["京东优选", "网易严选", "顺丰优选","自营"],
     showGoTop: false,
-    showSortPopView: false
+    showSortPopView: false,
+    currentServerIndex: -1
   },
 
   /**
@@ -54,7 +56,7 @@ Page({
       keywords: keywords,
       success: jsonData => {
         if (jsonData.result == 100 & jsonData.errcode == 0) {
-          //console.log(jsonData);
+          console.log(jsonData);
           that.setData({
             cartCount: jsonData.data.cartCount,
             catId: jsonData.data.catId,
@@ -75,12 +77,35 @@ Page({
 
             newUserAddressList: jsonData.data.newUserAddressList,
           });
+          
+          that.formatData();
         }
       },
       fail: err => {
 
       }
     });
+  },
+
+  formatData: function(){
+    var cateList = this.data.companyConfigInfo;
+    var catelistInfo = this.data.catNameArrInfo;
+
+    for (var i = 0; i < cateList.length; i++){
+      var cateItem = cateList[i];
+      var subCateArr = [];
+      for (var index = 0; index < catelistInfo.length; index++) {
+        if (cateItem.item_config_id == catelistInfo[index].item_config_id)
+        subCateArr.push(catelistInfo[index]);
+      }; 
+      cateItem.subCateArr = subCateArr;
+    }
+
+    this.setData({
+      companyConfigInfo: cateList
+    })
+
+    console.log(cateList);
   },
 
   /**
@@ -151,8 +176,16 @@ Page({
     var showSortPopView = this.data.showSortPopView;
     that.setData({
       showSortPopView: !showSortPopView
-    })
+    });
+  },
 
+  onServerItemAction: function(e) {
+    var that = this;
+    var currentIndex = e.currentTarget.dataset.index;
+    console.log(currentIndex);
+    that.setData({
+      currentServerIndex: currentIndex
+    })
   }
 
 })
