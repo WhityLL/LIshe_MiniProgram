@@ -18,7 +18,6 @@
 
 .floor .floor-itemgroup{
   width: 100%;
-  height: 960rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;

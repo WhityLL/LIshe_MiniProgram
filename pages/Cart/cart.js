@@ -14,9 +14,9 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面显示
    */
-  onLoad: function(options) {
+  onShow: function () {
     var that = this;
 
     // 获取购物车数量
@@ -30,6 +30,13 @@ Page({
 
     // 购物车列表
     that.getCartData();
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    
   },
 
   getCartData: function(e) {

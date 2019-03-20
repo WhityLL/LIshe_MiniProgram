@@ -104,8 +104,6 @@ Page({
     this.setData({
       companyConfigInfo: cateList
     })
-
-    console.log(cateList);
   },
 
   /**
@@ -186,6 +184,15 @@ Page({
     that.setData({
       currentServerIndex: currentIndex
     })
+  },
+
+  onClose: function (){
+    var that = this;
+    var showSortPopView = this.data.showSortPopView
+    that.setData({
+      showSortPopView: !showSortPopView
+    })
+
   }
 
 })

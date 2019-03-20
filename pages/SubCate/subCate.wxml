@@ -44,7 +44,7 @@
 
 </view>
 
-<van-popup show="{{ showSortPopView }}" position="right" duration="300" overlay-style='background-color:rgba(0, 0, 0, .2);'  close-on-click-overlay="false" safe-area-inset-bottom>
+<van-popup show="{{ showSortPopView }}" position="right" duration="300" overlay-style='background-color:rgba(0, 0, 0, .2);'  close-on-click-overlay="true" safe-area-inset-bottom bind:close="onClose">
 
   <view class='popview'>
     <view class='section'>

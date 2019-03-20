@@ -223,7 +223,7 @@
 
 .popview {
   width: 600rpx;
-  height: 1334rpx;
+  height: 1216rpx;
   background: #f5f5f5;
 }
 
@@ -323,7 +323,7 @@
 
 .pop-footer{
   width: 100%;
-  height: 100rpx;
+  height: 80rpx;
   background: #fff;
   position: fixed;
   bottom: 0;

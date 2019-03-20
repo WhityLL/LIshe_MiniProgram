@@ -118,10 +118,10 @@
       <view style="clear:both;"></view>
       <view class='pop-ChooseNun'>
         <text class='pop-ChooseNun-title'>数量：</text>
-        <van-stepper value="{{ 1 }}" integer="true" disable-input="true" min="1" max="{{currentSku.store}}" bind:change="onChange" />
+        <van-stepper value="{{ 1 }}" integer="true" disable-input="true" min="1" max="{{currentSku.store}}" bind:change="onStepperChange" />
       </view>
     </view>
 
-    <view class='pop-bottomConfirm'>加入购物车</view>
+    <view class='pop-bottomConfirm' bindtap='onClickAddCartEvent'>加入购物车</view>
   </view>
 </van-popup>

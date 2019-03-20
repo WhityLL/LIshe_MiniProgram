@@ -85,6 +85,25 @@ class netManager {
   }
 
   /**
+   * 加入购物车
+   */
+  addtoCart(params){
+    var itemId = params.itemId;
+    var skuId = params.skuId;
+    var quantity = params.quantity;
+    var shopId = params.shopId;
+    var jd_ids = params.jd_ids;
+    var url = urlManager.getAddToCartUrl();
+    url = url + "?itemId=" + itemId + "&skuId=" + skuId + "&quantity=" + quantity + "&shopId=" + shopId;
+    if (jd_ids.length) {
+      url = url + "&jd_ids=" + jd_ids;
+    }
+
+    params.url = url;
+    this.requestJsonData(params);
+  }
+
+  /**
    * 获取购物车数量
    */
   getCartNum(params){  
@@ -207,7 +226,6 @@ class netManager {
    * 网络请求（统一返回）
    */
   requestJsonData(params){
-    // var token = "b50a67d7db4487f702f6152c3db62aa4"; //正式
     var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyNjk5MyIsImNvbUlkIjoiMTUxMzMwOTQ0MTQ3MSIsImFjY291bnQiOiIxNTIwNjI3MTE1MyIsInVzZXJOYW1lIjoiXHU3ZWI4XHU3YmIxIn0._smLpQ6CrN7_V2JJMUjx7EWit-trKRRxXjG8km1nqUQ"; //测试
     var url = params.url;
   

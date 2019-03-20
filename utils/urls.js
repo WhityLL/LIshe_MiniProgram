@@ -23,14 +23,21 @@ const urlManager = {
     return configManager.getApiDomain() + "/shopAPI.php/Items/hotSearch";
   },
 
-  //购物车数量
-  getCartNumUrl: function() {
-    return configManager.getApiDomain() + "/shopAPI.php/Order/getCartNum";
-  },
-
   //商品详情
   getProductDetailUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Info/wshopIndex";
+  },
+  
+  /**  购物车 */
+
+  //购物车数量
+  getCartNumUrl: function () {
+    return configManager.getApiDomain() + "/shopAPI.php/Order/getCartNum";
+  },
+
+  //加入购物车
+  getAddToCartUrl: function () {
+    return configManager.getApiDomain() + "/lsheApi.php/Cart/addItemCart"
   },
 
   //购物车列表
@@ -48,25 +55,32 @@ const urlManager = {
     return configManager.getApiDomain() + "/shopAPI.php/Order/deleteCartId"
   },
 
+  /** 个人中心 */
+  
   //个人中心 用户信息
   getUserCenterUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/User/userCenter"
   },
 
+  //获取未读消息数
   getUnReadMsgNumUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Message/messageList"
   },
 
-  getOrderListUrl: function() {
-    return configManager.getApiDomain() + "/shopAPI.php/User/orderList"
-  },
-
+  //获取收藏列表
   getFavListUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/Info/favList"
   },
 
+  //用户积分列表
   getUserJifenUrl: function() {
     return configManager.getApiDomain() + "/shopAPI.php/User/jifen"
+  },
+
+  /**  Order */
+  //获取订单列表数据
+  getOrderListUrl: function () {
+    return configManager.getApiDomain() + "/shopAPI.php/User/orderList"
   }
 
 }

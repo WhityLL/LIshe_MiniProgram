@@ -10,6 +10,8 @@ Page({
   data: {
     swiperCurrent: 0,
     minPointSku: {},
+    currentSku: {},
+    currentSkuQuantity: 1,
     isFavorite: 1,
     showPopView: false
   },
@@ -17,7 +19,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     // console.log(options);
     var that = this;
     var itemId = options.itemId;
@@ -37,13 +39,13 @@ Page({
     });
   },
 
-  getProductData:function(itemId){
+  getProductData: function(itemId) {
     var self = this;
 
     app.netManager.getProductDetail({
       itemId: itemId,
       success: e => {
-        console.log(e);
+        // console.log(e);
         self.setData({
           new_list_images: e.data.itemInfo.new_list_images,
           itemInfo: e.data.itemInfo,
@@ -64,15 +66,18 @@ Page({
     })
   },
 
-  formatterData: function(){
+  /**
+   * 初始化数据
+   */
+  formatterData: function() {
     var that = this;
 
     /// 默认选择最小价格的sku
     var minPointSku = that.data.sKuList[0];
     var currentSku = that.data.sKuList[0];
-    for (var i = 1; i < that.data.sKuList.length - 1; i++){
+    for (var i = 1; i < that.data.sKuList.length - 1; i++) {
       var temp = that.data.sKuList[i];
-      if (temp.point < minPointSku.point){
+      if (temp.point < minPointSku.point) {
         minPointSku = temp;
       }
     }
@@ -102,34 +107,35 @@ Page({
     });
   },
 
-//轮播图的切换事件
-  swiperChange: function (e) {
+  //轮播图的切换事件
+  swiperChange: function(e) {
     var that = this;
     that.setData({
       swiperCurrent: e.detail.current
     })
   },
+
   //轮播图点击事件
-  swipclick: function (e) {
+  swipclick: function(e) {
     var that = this;
     var index = that.data.swiperCurrent;
     console.log("点击了商品详情轮播图" + index);
   },
 
   // cell点击事件
-  onCellClickAction: function (e){
+  onCellClickAction: function(e) {
     var title = e.detail.title;
     console.log(title);
-    if(title == "促销"){
+    if (title == "促销") {
 
       return;
     }
-    if (title == "配送"){
+    if (title == "配送") {
 
       return;
     }
-    if (title == "配送"){
-      
+    if (title == "配送") {
+
       return;
     }
   },
@@ -137,7 +143,7 @@ Page({
   /**
    * 跳转到购物车
    */
-  ontogoCartAction: function(e){
+  ontogoCartAction: function(e) {
     wx.switchTab({
       url: '/pages/Cart/cart'
     });
@@ -146,30 +152,28 @@ Page({
   /**
    * 在线客服
    */
-  ontogoOnlineServerAction: function (e) {
+  ontogoOnlineServerAction: function(e) {
     console.log("在线客服");
   },
 
   /**
    * 收藏 取消收藏
    */
-  onFavoriteAction: function (e) {
+  onFavoriteAction: function(e) {
     console.log("收藏 取消收藏");
   },
 
   /**
    * 加入购物车
    */
-  onAddtoCartAction: function (e) {
-    console.log("加入购物车");
-
+  onAddtoCartAction: function(e) {
     this.setData({ showPopView: true });
   },
 
   /**
    * 立即 购买
-   */            
-  onBuyAction: function (e) {
+   */
+  onBuyAction: function(e) {
     console.log("立即 购买");
   },
 
@@ -177,7 +181,10 @@ Page({
     this.setData({ showPopView: false });
   },
 
-  onSkuItemClick:function(e){
+  /**
+   *  点击了SKU，选中当前SKU
+   */
+  onSkuItemClick: function(e) {
     var that = this;
     var skuId = e.currentTarget.dataset.skuid;
     for (var i = 0; i < that.data.sKuList.length; i++) {
@@ -189,7 +196,44 @@ Page({
         break;
       }
     }
+  },
 
+  onStepperChange: function(e) {
+    var currentSkuQuantity = e.detail;
+    this.setData({
+      currentSkuQuantity: currentSkuQuantity
+    })
+  },
+
+  onClickAddCartEvent: function(e) {
+    var that = this;
+    app.netManager.addtoCart({
+      itemId: that.data.currentSku.item_id,
+      skuId: that.data.currentSku.sku_id,
+      quantity: that.data.currentSkuQuantity,
+      shopId: that.data.itemInfo.shop_id,
+      jd_ids: that.data.itemInfo.jd_sku,
+      success: jsonData => {
+        console.log(jsonData);
+        var msg;
+        if (jsonData.errcode == 0 && jsonData.result ==100) {
+          msg = "加入购物车成功";
+        }else{
+          msg = "加入购物车失败";
+        }
+
+        wx.showToast({
+          title: msg,
+          duration: 1500,
+          icon: 'none',
+          mask: true
+        });
+
+        that.setData({ showPopView: false });
+
+      }
+
+    });
   }
 
 })
