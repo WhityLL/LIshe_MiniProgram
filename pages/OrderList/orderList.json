@@ -1,5 +1,8 @@
 {
+  "navigationBarTitleText": "订单中心",
   "usingComponents": {
-    "segmentView": "/components/segmentComponent/segmentComponent"
+    "segmentView": "/components/segmentComponent/segmentComponent",
+    "orderCell": "/components/orderCell/orderCellComponent",
+    "van-button": "/miniprogram_npm/vant-weapp/button/index"
   }
 }

@@ -72,6 +72,13 @@ Page({
   formatterData: function() {
     var that = this;
 
+    for (var i = 0; i < that.data.sKuList.length; i++) {
+      var temp = that.data.sKuList[i];
+      if (!temp.spec_info || !temp.spec_info.length) {
+        temp.spec_info = "默认规格";
+      }
+    }
+
     /// 默认选择最小价格的sku
     var minPointSku = that.data.sKuList[0];
     var currentSku = that.data.sKuList[0];

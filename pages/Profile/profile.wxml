@@ -50,7 +50,7 @@
 
   <!-- 我的订单开始 -->
   <view class='order-group'>
-    <navigator url='/pages/OrderList/orderList?status=' open-type='navigate'>
+    <navigator url='/pages/OrderList/orderList?status=&segmentIndex=0' open-type='navigate'>
       <a class="weui-cell  weui-cell_access" href="javascript::">
         <div class="weui-cell__bd weui-cell-title">
           <p>我的订单</p>
@@ -61,7 +61,7 @@
     <ul>
       <li>
         <!--  -->
-        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_PAY&segmentIndex=1' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_pt.png" alt=""></image>
             <text class='tips-order-num' wx:if="{{count.WAIT_BUYER_PAY > 0}}">{{count.WAIT_BUYER_PAY}}</text>
@@ -71,7 +71,7 @@
         </navigator>
       </li>
       <li>
-        <navigator url='/pages/OrderList/orderList?status=WAIT_SELLER_SEND_GOODS' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=WAIT_SELLER_SEND_GOODS&segmentIndex=2' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_dy.png" alt=""></image>
             <!--if-->
@@ -81,7 +81,7 @@
         </navigator>
       </li>
       <li>
-        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_CONFIRM_GOODS' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=WAIT_BUYER_CONFIRM_GOODS&segmentIndex=3' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_goods.png" alt=""></image>
             <!--if-->
@@ -91,7 +91,7 @@
         </navigator>
       </li>
       <li>
-        <navigator url='/pages/OrderList/orderList?status=TRADE_FINISHED' open-type='navigate'>
+        <navigator url='/pages/OrderList/orderList?status=TRADE_FINISHED&segmentIndex=4' open-type='navigate'>
           <div>
             <image src="/images/Profile/po_icon_refund.png" alt=""></image>
           </div>
@@ -119,10 +119,10 @@
       </view>
     </van-cell>
     <!-- <van-cell title="我的优惠券" icon="/images/Profile/po_icon_cs1.png" is-link /> -->
-    <van-cell is-link icon="shop-o">
+    <van-cell is-link>
       <view slot="title">
         <view class="van-cell-text">我的优惠券</view>
-        <van-tag round type="danger">9</van-tag>
+        <van-tag round type="danger"> 9 </van-tag>
       </view>
       <view slot="icon">
         <image class='cell-icon' src='/images/Profile/po_icon_cs1.png'></image>

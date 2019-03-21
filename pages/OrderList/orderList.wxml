@@ -3,30 +3,41 @@
 
 <view class='container-view'>
 
-  <segmentView segmentItems="{{segmentItems}}" bindsegmentItemTap="onSegmentItemClick"></segmentView>
+  <segmentView segmentItems="{{segmentItems}}" defaultIndex="{{currentSegmentIndex}}" bindsegmentItemTap="onSegmentItemClick"></segmentView>
 
   <view class='order-list' wx:if="{{paymentTrade.length}}">
 
     <!-- 正常商品 -->
     <block wx:for='{{paymentTrade}}' wx:for-index="sectionindex" wx:for-item="section" wx:key='{{shop.shop_id}}'>
       <view class='section'>
-        <view class='section-header'>
-          <view class='section-header-left'>
-            <view class='section-header-shop'>
-              <image src='/images/Cart/cart_ic_shop.png'></image>
-              <text>{{section.paymentId}}</text>
+        <block wx:for='{{section.tradeInfoList}}' wx:for-index="shopindex" wx:for-item="shop" wx:key='{{shop}}'>
+
+          <view class='section-header'>
+            <view class='section-header-left'>
+              <view class='section-header-shop'>
+                <image src='/images/Cart/cart_ic_shop.png'></image>
+                <text>{{shop.trade.shopInfo.shop_name}}</text>
+              </view>
             </view>
+            <view class='section-header-status'>交易完成</view>
           </view>
-          <view class='section-header-status'>交易完成</view>
+
+          <orderCell wx:if="{{shop.orderArr.length == 1}}" class='cell' product="{{shop.orderArr[0]}}" bindproductClick="onProductAction"></orderCell>
+
+          <scroll-view wx:else class='moreProductCell'>
+            <image wx:for='{{shop.orderArr}}' wx:for-item="product" src='{{product.pic_path}}' wx:key='{{product}}'></image>
+          </scroll-view>
+
+        </block>
+
+        <view class='section-footer'>
+          <van-button type="default" round>取消订单</van-button>
         </view>
-
-       <!-- <cartProductCell wx:if="{{只有一个商品}}" class='cell' bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell>
-
-       <cartProductCell wx:else class='cell' bindcheckProductClick="onProductCheckBoxAction" bindproductClick="onProductAction"></cartProductCell> -->
-
       </view>
 
     </block>
+    
+    <view class='noMoreTips' wx:if='{{showNoMoreData}}'>没有更多订单啦</view>
 
   </view>
 

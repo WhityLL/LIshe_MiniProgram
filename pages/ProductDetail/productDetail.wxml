@@ -25,6 +25,14 @@
   </view>
 
   <view class='sction singleLine'>
+    <productDetailCell wx:if="{{coupons_count}}" title="领劵" bindcellTap="onCellClickAction">
+      <view slot="cell-content-content" class='conpons-group'>
+        <text>{{coupons[1][0].coupon_rule_detail}}</text>
+      </view>
+    </productDetailCell>
+  </view>
+
+  <view class='sction singleLine'>
     <productDetailCell title="促销" bindcellTap="onCellClickAction">
       <view slot="cell-content-content" class='content-content'>{{freepostageLimitMoney}}</view>
     </productDetailCell>

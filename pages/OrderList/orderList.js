@@ -8,7 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    segmentItems: ["全部订单","待付款","待发货","待收获","已完成"]
+    currentSegmentIndex: 0,
+    showNoMoreData: false,
+    page: 1,
+    segmentItems: ["全部订单","待付款","待发货","待收货","已完成"],
+    orderNumber: 0,
+    paymentTrade: []
   },
 
   /**
@@ -16,8 +21,13 @@ Page({
    */
   onLoad: function(options) {
     var status = options.status;
+    var segmentIndex = options.segmentIndex;
+
+    console.log(segmentIndex);
+
     this.setData({
-      status: status
+      status: status,
+      currentSegmentIndex: segmentIndex
     });
 
     this.getOrderList()
@@ -25,7 +35,11 @@ Page({
 
   getOrderList: function(params) {
     var that = this;
+    wx.showLoading({
+      title: "正在加载中..."
+    })
     app.netManager.getOrderList({
+      page: that.data.page,
       status: that.data.status,
       success: jsonResp => {
         if(jsonResp.result == 100 && jsonResp.errcode == 0){
@@ -35,26 +49,44 @@ Page({
           var status = jsonResp.data.status;
           var total = jsonResp.data.total;
 
+          console.log(paymentTrade);
+          // 数据处理
           for (var i = 0; i < paymentTrade.length; i++){
             var paymentTradeObj = paymentTrade[i];
             var tradeInfo = paymentTradeObj.tradeInfo;
             var paymentId = paymentTradeObj.paymentId;
             paymentId = (paymentId.substring(0, paymentId.length-1));
-
-            console.log(paymentTradeObj);
-            console.log(tradeInfo);
-            console.log(tradeInfo[paymentId]);
-            console.log("================" + paymentId);
+            var tradeInfoList = Object.values(tradeInfo);
+            for (var j = 0; j < tradeInfoList.length; j++){
+              var obj = tradeInfoList[j];
+              var orderArr = Object.values(obj.order);
+              // 处理商品数据
+              obj.orderArr = orderArr;
+            }
+            // 不同商家的商品
+            paymentTradeObj.tradeInfoList = tradeInfoList
           }
 
+          var originpaymentTradeArr = that.data.paymentTrade;
+          originpaymentTradeArr = originpaymentTradeArr.concat(paymentTrade);
+
+          var showNoMoreData = orderNumber < 10 ? true : false;
+
+          // 初始化数据
           that.setData({
             mcuid: mcuid,
             orderNumber: orderNumber,
-            paymentTrade: paymentTrade,
+            paymentTrade: originpaymentTradeArr,
             status: status,
-            total: total
-          })
+            total: total,
+            showNoMoreData: showNoMoreData
+          });
+  
+          // console.log(originpaymentTradeArr);
+          // console.log("===========");
+
         }
+        wx.hideLoading();
       }
     })
   },
@@ -81,9 +113,23 @@ Page({
       mcuid: 0,
       orderNumber: 0,
       paymentTrade: [],
-      total: 0
+      total: 0,
+      page: 1,
+      showNoMoreData: false
     });
 
     this.getOrderList()
+  },
+
+  onReachBottom: function(e){
+    var that = this;
+    if (!that.data.showNoMoreData){
+      console.log("加载更多");
+
+      var page = that.data.page + 1;
+      that.setData({ page: page });
+      that.getOrderList();
+    }
   }
+
 })

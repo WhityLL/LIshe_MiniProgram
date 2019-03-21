@@ -23,8 +23,10 @@ Component({
   },
 
   lifetimes:{
-    attacheed: function () {
+    attached: function () {
       var that = this;
+      console.log(that.properties.defaultIndex);
+      console.log("-=-=-=-=");
       that.setData({
         currentIndex: that.properties.defaultIndex
       })

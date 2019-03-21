@@ -1,0 +1,23 @@
+<!--components/orderCell/orderCellComponent.wxml-->
+
+<view class='cell'>
+
+  <view class='cell-content'>
+    <view class='cell-right' bindtap="onProductAction">
+      <image src='{{product.pic_path}}'></image>
+      <view class='cell-right-content'>
+        <view class='cell-right-top'>
+          <text>"{{product.title}}"</text>
+        </view>
+        <view class='cell-right-bottom'>
+          <text class='product-desc'>{{product.spec_nature_info}}</text>
+          <view class='product-price'>
+            <text>{{product.point}}积分</text>
+            <text class='product-num'>x{{product.num}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

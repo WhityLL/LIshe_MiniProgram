@@ -201,7 +201,8 @@ class netManager {
   getOrderList(params){
     var url = urlManager.getOrderListUrl();
     var status = params.status;
-    url = url + "?status=" + status;
+    var page = params.page;
+    url = url + "?status=" + status + "&page=" + page;
     params.url = url;
     this.requestJsonData(params);
   }
