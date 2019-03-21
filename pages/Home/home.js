@@ -29,7 +29,7 @@ Page({
     // 获取购物车数量
     app.netManager.getCartNum({
       success: e =>{
-        console.log(e);
+        console.log("购物车数量=" + e);
         if(e > 0){
           wx.setTabBarBadge({
             index: 2,

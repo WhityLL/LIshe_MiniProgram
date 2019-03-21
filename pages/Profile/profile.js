@@ -32,11 +32,10 @@ Page({
     var that = this;
     that.getUsrCenterData();
 
-    // 获取购物车数量
+    // 获取未读消息数量
     app.netManager.getUnReadMsgNum({
-
       success: e => {
-        console.log(e);
+        console.log("未读消息数量=" + e);
         that.setData({
           unReadMsgNum: e
         })

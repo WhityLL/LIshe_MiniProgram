@@ -4,7 +4,6 @@
     "pages/Categary/categary",
     "pages/Cart/cart",
     "pages/Profile/profile",
-    "pages/index/index",
     "pages/search/search",
     "pages/ProductDetail/productDetail",
     "pages/WebView/webView",
@@ -13,7 +12,10 @@
     "pages/SubCate/subCate",
     "pages/OrderList/orderList",
     "pages/Colloction/coloection",
-    "pages/JiFen/jifen"
+    "pages/JiFen/jifen",
+    "pages/Conpons/conpon",
+    "pages/Address/addressList",
+    "pages/EditAddress/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

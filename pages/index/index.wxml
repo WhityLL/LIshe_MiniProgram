@@ -1,3 +1,0 @@
-
-<view>点击了一个分类 ID= {{categary_Id}}</view>
-<view>点击了一个商品 ID= {{child_Id}}</view>

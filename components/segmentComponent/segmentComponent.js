@@ -9,7 +9,7 @@ Component({
       value:[]
     },
 
-    defaultIndex:{
+    currentIndex:{
       type: Number,
       vlue: 0
     }
@@ -19,17 +19,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-    currentIndex: 0
+     // 这里是一些组件内部数据
   },
 
+  /**
+   * 组件生命周期
+   */
   lifetimes:{
     attached: function () {
-      var that = this;
-      console.log(that.properties.defaultIndex);
-      console.log("-=-=-=-=");
-      that.setData({
-        currentIndex: that.properties.defaultIndex
-      })
+      
     }
   },
 

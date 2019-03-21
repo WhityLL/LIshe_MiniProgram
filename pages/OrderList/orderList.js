@@ -22,9 +22,7 @@ Page({
   onLoad: function(options) {
     var status = options.status;
     var segmentIndex = options.segmentIndex;
-
-    console.log(segmentIndex);
-
+    console.log('segment= ' + segmentIndex + " & status=" + status);
     this.setData({
       status: status,
       currentSegmentIndex: segmentIndex
@@ -49,7 +47,7 @@ Page({
           var status = jsonResp.data.status;
           var total = jsonResp.data.total;
 
-          console.log(paymentTrade);
+          // console.log(paymentTrade);
           // 数据处理
           for (var i = 0; i < paymentTrade.length; i++){
             var paymentTradeObj = paymentTrade[i];
@@ -81,10 +79,6 @@ Page({
             total: total,
             showNoMoreData: showNoMoreData
           });
-  
-          // console.log(originpaymentTradeArr);
-          // console.log("===========");
-
         }
         wx.hideLoading();
       }
@@ -108,6 +102,8 @@ Page({
     }else{
       status = "";
     }
+    console.log('segment= ' + index + " & status=" + status);
+
     this.setData({
       status: status,
       mcuid: 0,

@@ -118,8 +118,8 @@
         <image class='cell-icon' src='/images/Profile/po_icon_assets.png'></image>
       </view>
     </van-cell>
-    <!-- <van-cell title="我的优惠券" icon="/images/Profile/po_icon_cs1.png" is-link /> -->
-    <van-cell is-link>
+    
+    <van-cell is-link url='/pages/Conpons/conpon'>
       <view slot="title">
         <view class="van-cell-text">我的优惠券</view>
         <van-tag round type="danger"> 9 </van-tag>
@@ -128,7 +128,7 @@
         <image class='cell-icon' src='/images/Profile/po_icon_cs1.png'></image>
       </view>
     </van-cell>
-    <!-- <van-cell title="我的福利券" icon="/images/Profile/po_icon_cs.png" is-link /> -->
+    
     <van-cell is-link>
       <view slot="title">
         <view class="van-cell-text">我的福利券</view>
@@ -137,7 +137,7 @@
         <image class='cell-icon' src='/images/Profile/po_icon_cs.png'></image>
       </view>
     </van-cell>
-    <!-- <van-cell title="修改密码" icon="/images/Profile/po_icon_pd.png" is-link /> -->
+   
     <van-cell is-link>
       <view slot="title">
         <view class="van-cell-text">修改密码</view>
@@ -147,8 +147,7 @@
       </view>
     </van-cell>
 
-    <!-- <van-cell title="地址管理" icon="/images/Profile/po_icon_as.png" is-link /> -->
-    <van-cell is-link>
+    <van-cell is-link url='/pages/Address/addressList'>
       <view slot="title">
         <view class="van-cell-text">地址管理</view>
       </view>
@@ -156,7 +155,7 @@
         <image class='cell-icon' src="/images/Profile/po_icon_as.png"></image>
       </view>
     </van-cell>
-    <!-- <van-cell title="新手引导" icon="/images/Profile/po_icon_guide.png" is-link /> -->
+
     <van-cell is-link>
       <view slot="title">
         <view class="van-cell-text">新手引导</view>
@@ -165,7 +164,7 @@
         <image class='cell-icon' src="/images/Profile/po_icon_guide.png"></image>
       </view>
     </van-cell>
-    <!-- <van-cell title="关于礼舍" icon="/images/Profile/po_icon_about.png" is-link /> -->
+
     <van-cell is-link>
       <view slot="title">
         <view class="van-cell-text">关于礼舍</view>
@@ -177,87 +176,8 @@
 
   </van-cell-group>
 
-  <!-- <view class="weui-cells">
-    <div class="weui-cell weui-cell-title">
-      <div class="weui-cell__bd">
-        <p>我的服务</p>
-      </div>
-    </div>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_assets.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>我的资产</text>
-      </view>
-      <view class="weui-cell__ft"></view>
-    </a>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_cs1.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>我的优惠券</text>
-      </view>
-      <div class="weui-badge" style="margin-right: 5px;">8</div>
-      <view class="weui-cell__ft"></view>
-    </a>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_cs.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>我的福利券</text>
-      </view>
-      <div class="weui-badge" style="margin-right: 5px;">8</div>
-      <view class="weui-cell__ft"></view>
-    </a>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_pd.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>修改密码</text>
-      </view>
-      <view class="weui-cell__ft"></view>
-    </a>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_as.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>地址管理</text>
-      </view>
-      <view class="weui-cell__ft"></view>
-    </a>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_guide.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>新手引导</text>
-      </view>
-      <view class="weui-cell__ft"></view>
-    </a>
-
-    <a class="weui-cell weui-cell_access" href="javascript::">
-      <view class="weui-cell__hd">
-        <image src='/images/Profile/po_icon_about.png' style="width:20px;height:20px;margin-right:5px;display:block"></image>
-      </view>
-      <view class="weui-cell__bd">
-        <text>关于礼舍</text>
-      </view>
-      <view class="weui-cell__ft"></view>
-    </a>
-  </view> -->
-  <!-- 下边cell结束-->
-
   <button class='btn_logout' type='warn'>退出登录</button>
 
 </view>
+
+<!-- /pages/Conpons/conpon -->

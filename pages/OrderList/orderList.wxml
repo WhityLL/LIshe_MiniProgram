@@ -3,7 +3,7 @@
 
 <view class='container-view'>
 
-  <segmentView segmentItems="{{segmentItems}}" defaultIndex="{{currentSegmentIndex}}" bindsegmentItemTap="onSegmentItemClick"></segmentView>
+  <segmentView segmentItems="{{segmentItems}}" currentIndex="{{currentSegmentIndex}}" bindsegmentItemTap="onSegmentItemClick"></segmentView>
 
   <view class='order-list' wx:if="{{paymentTrade.length}}">
 
