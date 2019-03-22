@@ -176,7 +176,7 @@
 
   </van-cell-group>
 
-  <button class='btn_logout' type='warn'>退出登录</button>
+  <button class='btn_logout' type='warn' bindtap='onLogoutEvent'>退出登录</button>
 
 </view>
 

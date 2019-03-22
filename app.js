@@ -13,7 +13,8 @@ App({
 
   globalData: {
     systemInfo: null,
-    userInfo: null
+    userInfo: null,
+    token: ''
   },
 
   touch: new touch(),

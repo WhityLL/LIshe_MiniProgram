@@ -14,21 +14,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var that = this;
     that.getUsrCenterData();
 
@@ -40,19 +33,18 @@ Page({
           unReadMsgNum: e
         })
       }
-      
     });
   },
 
   /**
    * 获取用户信息
    */
-  getUsrCenterData: function(e){
+  getUsrCenterData: function(e) {
     var that = this;
     app.netManager.getUserCenterInfo({
       success: jsonResp => {
         console.log(jsonResp);
-        if (jsonResp.errcode == 0 && jsonResp.result == 100){
+        if (jsonResp.errcode == 0 && jsonResp.result == 100) {
           var collectCount = jsonResp.data.collectCount;
           var comId = jsonResp.data.comId;
           var count = jsonResp.data.count;
@@ -76,6 +68,17 @@ Page({
           })
         }
       }
+    })
+  },
+
+  /**
+   *  退出登录
+   */
+  onLogoutEvent: function(e) {
+    getApp().globalData.token = '';
+
+    wx.reLaunch({
+      url: '/pages/Login/index',
     })
   }
 

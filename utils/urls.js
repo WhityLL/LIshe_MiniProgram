@@ -56,7 +56,11 @@ const urlManager = {
   },
 
   /** 个人中心 */
-  
+  //登录
+  getLoginUrl: function () {
+    return configManager.getApiDomain() + "/lsheApi.php/User/sign"
+  },
+
   //个人中心 用户信息
   getUserCenterUrl: function() {
     return configManager.getApiDomain() + "/lsheApi.php/User/userCenter"

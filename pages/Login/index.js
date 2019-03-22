@@ -1,66 +1,58 @@
 // pages/Login/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    username: "",
+    pw: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onUserNameChange: function(e) {
+    var username = e.detail;
+    this.setData({
+      username: username
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onPwChange: function(e) {
+    var pw = e.detail;
+    this.setData({
+      pw: pw
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onBtnLoginEvent: function(e) {
+    var userName = this.data.username;
+    var password = this.data.pw;
+    app.netManager.login({
+      userName: userName,
+      password: password,
+      success: jsonData => {
+        // console.log(jsonData);
+        if (jsonData.errcode == 0 && jsonData.result == 100){
+          var token = jsonData.data.info.token;
+          app.globalData.token = token;
+          console.log(token);
+          if (token) {
+            wx.switchTab({
+              url: '/pages/Home/home'
+            })
+          }  
+        }
+      }
+    });
   }
+
 })

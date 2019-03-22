@@ -3,18 +3,18 @@
 <view class='container-view'>
 
   <van-cell-group>
-    <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ true }}" bind:change="onChange">
+    <van-field value="{{username}}" placeholder="请输入用户名" border="{{ true }}" bind:change="onUserNameChange">
       <image slot='left-icon' src='/images/Login/login_ic_account.png'></image>
     </van-field>
 
-    <van-field value="{{ value }}" placeholder="请输入密码" border="{{ true }}" bind:change="onChange">
+    <van-field value="{{password}}" placeholder="请输入密码" border="{{ true }}" bind:change="onPwChange">
       <image slot='left-icon' src='/images/Login/login_ic_pwd.png '></image>
     </van-field>
 
   </van-cell-group>
 
   <view class='bottom'>
-    <van-button class='btn-login' type="danger" size='large'>登录</van-button>
+    <van-button class='btn-login' type="danger" size='large' bind:click='onBtnLoginEvent'>登录</van-button>
   </view>
 
 

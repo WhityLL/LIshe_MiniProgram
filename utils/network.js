@@ -168,6 +168,38 @@ class netManager {
   }
 
   /**
+   * 登录
+   */
+  login(params) {
+    var userName = params.userName;
+    var password = params.password;
+    var url = urlManager.getLoginUrl();
+    var url = url + "?userName=" + userName + "&password=" + password;
+    wx.request({
+      url: url,
+      data: {
+        client: 5
+      },
+      success: function (e) {
+        var jsonData = e.data;
+        if (jsonData.result == 100 && jsonData.errcode == 1) {
+          console.log("未登陆" + url);
+        } else {
+          if (params && params.success && jsonData) {
+            params.success(jsonData);
+          }
+        }
+      },
+      fail: err => {
+        if (params && params.fail) {
+          console.log(err);
+          params.fail(err);
+        }
+      }
+    })
+  }
+
+  /**
    * 个人中心 用户信息 
    */
   getUserCenterInfo(params){
@@ -237,7 +269,7 @@ class netManager {
    * 网络请求（统一返回）
    */
   requestJsonData(params){
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyNjk5MyIsImNvbUlkIjoiMTUxMzMwOTQ0MTQ3MSIsImFjY291bnQiOiIxNTIwNjI3MTE1MyIsInVzZXJOYW1lIjoiXHU3ZWI4XHU3YmIxIn0._smLpQ6CrN7_V2JJMUjx7EWit-trKRRxXjG8km1nqUQ"; //测试
+    var token = getApp().globalData.token;
     var url = params.url;
   
     wx.request({
