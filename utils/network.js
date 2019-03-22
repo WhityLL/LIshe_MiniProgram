@@ -195,6 +195,16 @@ class netManager {
     });
   }
 
+
+  /**
+   * 地址列表
+   */
+  getAddressList(params) {
+    var url = urlManager.getAddressListUrl();
+    params.url = url;
+    this.requestJsonData(params);
+  }
+
   /**
    * 订单列表
    */

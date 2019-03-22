@@ -76,6 +76,11 @@ const urlManager = {
   getUserJifenUrl: function() {
     return configManager.getApiDomain() + "/lsheApi.php/Point/jifen"
   },
+  
+  //地址列表
+  getAddressListUrl: function() {
+    return configManager.getApiDomain() + "/lsheApi.php//Address/addrList"
+  },
 
   /**  Order */
 

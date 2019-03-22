@@ -1,2 +1,40 @@
 <!--pages/Address/addressList.wxml-->
-<text>pages/Address/addressList.wxml</text>
+<view class='container-view'>
+
+  <view class='addressItem' wx:for="{{addressList}}" wx:for-item="addressModel" wx:for-index="index" wx:key="{{addressModel}}">
+    <view class='ul address-info-group'>
+      <text class='address-name'>{{addressModel.name}}</text>
+      <text class='address-mobile'>{{addressModel.mobile}}</text>
+      <text class='defaultAddress' wx:if="{{addressModel.is_invalid == 1}}">失效</text>
+    </view>
+    <view class='ul address-group'>
+      <text>{{addressModel.area}} {{addressModel.addr}}</text>
+    </view>
+    <view class='ul address-edit-group'>
+      <van-checkbox use-icon-slot value="{{addressModel.def_addr}}" data-index='{{index}}'  bind:change="onSetDefaultAddressAction">
+        <text>默认地址</text>
+        <image slot="icon" src="{{ addressModel.def_addr == 1 ? defaultIcon.active : defaultIcon.normal }}" />
+      </van-checkbox>
+
+      <van-checkbox wx:if="{{addressModel.def_addr != 1}}" id='delete' use-icon-slot value="{{addressModel.def_addr}}" data-index='{{index}}' bind:change="onDeleteAddressAction">
+        <text>删除</text>
+        <image slot="icon" src="/images/Addres/add_ic(1).png" />
+      </van-checkbox>
+
+      <van-checkbox id='edit' use-icon-slot value="{{addressModel.def_addr}}" data-index='{{index}}' bind:change="onEditAddressAction">
+        <text>编辑</text>
+        <image slot="icon" src="/images/Addres/add_ic.png" />
+      </van-checkbox>
+
+    </view>
+  </view>
+
+  <view class='addAddress-group'>
+    <view class='btn-add' bindtap='onAddAddressAction'>
+      <image src='/images/Addres/add_ic_add.png'></image>
+      <text>新增收货地址</text>
+    </view>
+
+  </view>
+
+</view>
