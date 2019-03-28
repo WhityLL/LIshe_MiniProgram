@@ -11,10 +11,6 @@ page {
   box-sizing: border-box;
 }
 
-van-field{
-  margin-bottom: 20rpx;  
-}
-
 van-field image {
   width: 40rpx;
   height: 40rpx;

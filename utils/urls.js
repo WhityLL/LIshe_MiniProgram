@@ -55,6 +55,10 @@ const urlManager = {
     return configManager.getApiDomain() + "/lsheApi.php/Cart/deleteCartId"
   },
 
+  getOrderOrderUrl: function() {
+    return configManager.getApiDomain() + "/lsheApi.php/Order/order"
+  },
+
   /** 个人中心 */
   //登录
   getLoginUrl: function () {

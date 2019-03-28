@@ -16,7 +16,8 @@
     "pages/JiFen/jifen",
     "pages/Conpons/conpon",
     "pages/Address/addressList",
-    "pages/EditAddress/index"
+    "pages/EditAddress/index",
+    "pages/ConfirmOrder/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

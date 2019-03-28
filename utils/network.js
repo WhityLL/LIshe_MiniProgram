@@ -167,6 +167,14 @@ class netManager {
     this.requestJsonData(params);
   }
 
+  orderOrder(params){
+    var url = urlManager.getOrderOrderUrl();
+    var itemList = params.itemList
+    url = url + "?itemList=" + itemList;
+    params.url = url;
+    this.requestJsonData(params);
+  }
+
   /**
    * 登录
    */
@@ -269,6 +277,8 @@ class netManager {
    * 网络请求（统一返回）
    */
   requestJsonData(params){
+    // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyNjk5MyIsImNvbUlkIjoiMTUxMzMwOTQ0MTQ3MSIsImFjY291bnQiOiIxNTIwNjI3MTE1MyIsInVzZXJOYW1lIjoiXHU3ZWI4XHU3YmIxIn0._smLpQ6CrN7_V2JJMUjx7EWit - trKRRxXjG8km1nqUQ
+
     var token = getApp().globalData.token;
     var url = params.url;
   

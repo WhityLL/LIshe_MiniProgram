@@ -243,7 +243,18 @@ Page({
   },
 
   onCOnfirmOrderAction: function(e){
-    console.log("去结算");
+    var that = this;
+    var itemListArr = [];
+    that.data.normalData.forEach( shop => {
+      shop.itemList.forEach( product => {
+        if (product.is_checked == 1){
+          itemListArr.push(product.cart_id);
+        }
+      })
+    })
+    var itemList = itemListArr.join(',');
+    wx.navigateTo({
+      url: '/pages/ConfirmOrder/index?itemList=' + itemList,
+    });
   }
-
 })

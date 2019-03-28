@@ -1,0 +1,38 @@
+<!--pages/ConfirmOrder/index.wxml-->
+
+<view class='container-view'>
+
+  <!-- 地址 -->
+  <view class='address-group'>
+    <view class='address-content'>
+      <view class='address-top'>
+        <text>{{address.defAddr.name}}</text>
+        <text>{{address.defAddr.mobile}}</text>
+      </view>
+      <view class='address-address'>
+        {{address.addressArea}}
+      </view>
+      <view class='address-bottom'></view>
+    </view>
+  </view>
+
+  <view class='shoplist-group'>
+    <shop-section wx:for="{{shopList}}" wx:for-item="shopItem" wx:key="{{shopItem}}" shop="{{shopItem}}"></shop-section>
+  </view>
+
+  <!-- 底部控制 -->
+  <view class='footer-control'>
+    <view class='footer-control-info'>
+      <view class='payinfo'>        
+        <text class='payPoint'>{{allTotalPoint}}积分</text>
+        <text>需支付:</text>
+      </view>
+      <view class='youhui-info'>
+        <text>{{allTotalCash}}积分</text>
+        <text>优惠:</text>
+      </view>
+    </view>
+    <van-button round type="danger" bind:click="{{onClickSubmitOrderAction}}">提交订单</van-button>
+  </view>
+
+</view>

@@ -1,0 +1,33 @@
+<!--components/confirmOrderSectionComponent/index.wxml-->
+
+<view class='section'>
+  <view class='shop-group'>
+    <image src='/images/Cart/cart_ic_shop.png'></image>
+    <text>{{shop.shop_name}}</text>
+  </view>
+
+  <view class='product-cell' wx:for="{{shop.itemList}}" wx:for-item="product" wx:key="{{product}}">
+    <image src='{{product.image_default_id}}'></image>
+    <view class='cell-right-content'>
+      <view class='product-title'>{{product.title}}</view>
+      <view class='product-spec'>{{product.spec_info}}</view>
+      <text class='product-point'>{{product.point}}积分</text>
+      <text class='product-num'>x{{product.quantity}}</text>
+    </view>
+  </view>
+
+  <view class='shop-order-info'>
+
+    <view class='freight-group'>
+      <text class='freight-group-title'>运费</text>
+      <text class='freight-group-value'>{{shop.shopPostFreePoint}}</text>
+    </view>
+
+    <view class='point-group'>
+      <text class='point-group-value'>{{shop.shopTotalPoint}}积分</text>
+      <text class='point-group-title'>商品合计：</text>
+    </view>
+
+  </view>
+
+</view>
